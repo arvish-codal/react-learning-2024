@@ -10,3 +10,19 @@ https://github.com/facebook/create-react-app
 -> NPX is an npm package runner which gets installed when you install Node.
    And that is how we're directly able to run, create React App without 
    having to install it. NPX takes care of that for us.
+
+* package.json 
+-> This files contain the dependencies and the scripts required for the project.
+   
+* package-lock.json 
+-> Based on whether we have just `npm` or `yarn` as a package manager, we're gonna see yarn-lock or package-lock files.
+-> They simply ensure consistent installation of your dependencies.
+
+* node_modules
+-> The folder in which all the depencencies are installed. Generated when we run `npm install` or `create-react-app`
+   command.
+   
+    
+
+
+
