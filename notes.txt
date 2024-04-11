@@ -1,0 +1,12 @@
+https://github.com/facebook/create-react-app
+
+>> Create-React-App is a command line interface tool that allows us to quickly
+   create and run React Applications with no configuration.
+
+>> What that means is we simply run a command and an entire React project is 
+   created for us.
+
+* What is NPX ? 
+-> NPX is an npm package runner which gets installed when you install Node.
+   And that is how we're directly able to run, create React App without 
+   having to install it. NPX takes care of that for us.
