@@ -21,8 +21,9 @@ https://github.com/facebook/create-react-app
 * node_modules
 -> The folder in which all the depencencies are installed. Generated when we run `npm install` or `create-react-app`
    command.
-   
-    
 
+* Functional Component & Class Component 
+-> What is the advantage of using one over the other and when 
+   exactly should you use a particular component type ?
 
-
+-> 
