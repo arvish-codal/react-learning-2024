@@ -39,3 +39,16 @@ Before jumping in to hooks - few things to consider
 - JSX ultimately transpiles to pure JavaScript which is understood by the browsers.
 
 - Each JSX element is just syntactic sugar for calling React.CreateElement
+
+- Props which is the short form for properties is the optional input that your component 
+  can accept. It also allows the component to by dynamic.
+
+- Props is just an object that contains the attributes and their values which have been 
+  passed from the parent component. They are used to make the component re-usable.
+
+- Unlike the functional component where we specify the props parameter ; In a class 
+  component the properties are available through `this.props` which is reserved in class components.
+
+- Props are immutable.
+- Now, we might have a question, if props are immutable how do we maintain component data that might change 
+  over time ?
