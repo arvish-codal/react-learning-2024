@@ -26,4 +26,16 @@ https://github.com/facebook/create-react-app
 -> What is the advantage of using one over the other and when 
    exactly should you use a particular component type ?
 
--> 
+-> Earlier, Functional components were stateless. But, Hooks are a new 
+   feature proposal that lets you use state and other React features 
+   without writing a class.
+
+Before jumping in to hooks - few things to consider 
+  - learn how to use state, lifecycle methods and `this` binding in Class components.
+
+* JSX - JavaScript XML - Extension to the JavaScript language syntax.
+- Write XML-like code for elements and components.
+- JSX tags have a tag name, attributes, and children.
+- JSX ultimately transpiles to pure JavaScript which is understood by the browsers.
+
+- Each JSX element is just syntactic sugar for calling React.CreateElement
