@@ -49,6 +49,30 @@ Before jumping in to hooks - few things to consider
 - Unlike the functional component where we specify the props parameter ; In a class 
   component the properties are available through `this.props` which is reserved in class components.
 
+- Understand `props.children` from here --> `https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891`
+
 - Props are immutable.
 - Now, we might have a question, if props are immutable how do we maintain component data that might change 
   over time ?
+
+- The answer to this is `State`.
+
+- props vs state 
+
+  : Props get passed to the component while state is managed within the component.
+  
+  : Because a parent usually passes down the props to the child component, 
+    props are immutable. The parent owns the props and cannot be changed 
+    by the children.
+
+  : State on the other hand is managed within the component and hence the 
+    component has fully control to change the state.
+
+  : In functional components, props can be accessed using the props parameter
+    and in class components props can be accessed using this.props.
+
+  : State on the other hand can be accessed using the useState hook in functional 
+    components & this.state in class components.
+
+  : A state is nothing but an object that is privately maintained inside a component.
+  : A state can influence what is rendered in the browser.
