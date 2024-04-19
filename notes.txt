@@ -76,3 +76,17 @@ Before jumping in to hooks - few things to consider
 
   : A state is nothing but an object that is privately maintained inside a component.
   : A state can influence what is rendered in the browser.
+
+- When you've to change the state of a component, we need to use the `setState` method.
+- Calls made to `setState` are Asynchronous.
+
+- Always make use of setState and never modify the state directly.
+- If you have a code that must be executed after the state has been updated, 
+  place that code in the callback function which is the second argument to the 
+  setState method.
+
+
+For below 2 points, watch video 11 from 10:20 - 11:35 min and read again.
+ - React may group multiple `setState` calls into a single update for better performance.
+ - Therefore whenever you have to update the state based on the previous state, we need to pass 
+   function as an argument to setState method instead of passing in an object.
