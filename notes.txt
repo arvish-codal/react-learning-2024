@@ -90,3 +90,41 @@ For below 2 points, watch video 11 from 10:20 - 11:35 min and read again.
  - React may group multiple `setState` calls into a single update for better performance.
  - Therefore whenever you have to update the state based on the previous state, we need to pass 
    function as an argument to setState method instead of passing in an object.
+
+Destructuring :- 
+ - It is an ES6 feature that makes it possible to unpack values from arrays 
+   or properties from objects into distinct variables.
+
+ - In React, destructuring props & state improves code readibility.
+ - Destructuring in a functional based component happens in 2 ways - first in the 
+   functional parameter & second way is to destructure it in the function body.
+
+ - 1st WAY --> const Greet = ({name, heroName}) => { 
+    return (
+    <div>
+    <h1>Hello {name} a.k.a {heroName}</h1> 
+    </div>
+    )
+  }
+
+-  2nd WAY --> const Greet = props => { 
+    const {name, heroName} = props
+    return (
+    <div>
+    <h1>Hello {name} a.k.a {heroName}</h1> 
+    </div>
+)
+}
+
+In class components, we generally tend to destructure props or state in the 
+render method.
+
+For ex, : const {name, heroName} = this.props
+
+We are simply extracting the necessary props. Our props object could contain 10
+different props but you can destructure only the ones you wish to use in your 
+component.
+
+Similarly, we might also have a number of state properties. Can be destructured in the 
+similar way as above.
+
