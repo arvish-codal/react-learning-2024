@@ -128,3 +128,31 @@ component.
 Similarly, we might also have a number of state properties. Can be destructured in the 
 similar way as above.
 
+Understand Constructors with React Components --> https://www.knowledgehut.com/blog/web-development/understanding-constructors-with-react-components
+
+Binding Event Handlers :- 
+
+1st Option -> Binding in the render method. 
+              Use the bind keyword and bind the handler in the render method.
+           : Although this option works perfectly fine. Every update to the 
+             state will cause the component to rerender. This in-turn will
+             generate a brand new event handler on every render. 
+
+           : Although the impact on performance is not severe in small applications.
+             It could be troublesome in large applications and components that contain 
+             nested children components.
+
+2nd Option -> To use arrow functions in the render method.
+
+           : This approach is simply calling the event handler in the arrow function body.
+           : Similar to the first approach, this also has performance implications in some 
+             scenarios.
+
+3rd Option -> This approach deals with binding the event handler in the constructor 
+              (i.e class constructor )
+              as opposed to binding in the render method.
+
+           : Because the binding happens once in the constructor, this approach is better 
+             compared to binding in the render method.
+
+4th Option -> To use an arrow function as a class property.
