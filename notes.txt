@@ -156,3 +156,24 @@ Binding Event Handlers :-
              compared to binding in the render method.
 
 4th Option -> To use an arrow function as a class property.
+
+: Till now, we've seen how a parent component can pass down props to its children components.
+: Any data in the parent component, when passed as props is available in the children components.
+  Now, what if a child component wanted to communicate with the parent component ?
+  - We still use props for this, but this time we pass in a reference to a method as props to the 
+    child component.
+
+: In nutshell, we wish to have a child component calling a parent component's method.
+  Can be achieved using props. The only difference this time is we pass the method 
+  itself as a prop to the child component. We use the attribute `greetHandler` for that.
+
+  See files --> ParentComponent.js & ChildComponent.js 
+  : There in, we've successfully called a method in the parent component from a button 
+    in the child component by passing the method as props to the child component.
+
+  How to pass a parameter when calling the parent method from the child component ?
+  : Can use an arrow function in the return statement. Arrow function syntax is the 
+    simplest way to pass parameters from the child component to the parent component.
+    
+  : Again, refer the files --> ParentComponent.js & ChildComponent.js where in we have 
+    successfully passed a paremeter from the child to the parent.
