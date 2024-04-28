@@ -193,6 +193,7 @@ TIP - It's always good to refactor the JSX into a separate component.
    a crucial role in handling UI updates efficiently.
 
 The key prop is a special attribute we need to include when creating lists of elements.
+Keys give the elements a stable identity.
 An important point to keep in mind about key prop is that they are not accessible in the
 child components.
 
