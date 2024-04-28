@@ -186,3 +186,19 @@ Element Variables - In this approach, we use JavaScript variables to store eleme
                     part of the component as well.
 
 TIP - It's always good to refactor the JSX into a separate component.
+
+
+ - Why do we need a KEY prop ?
+ - Keys help React identify which items in a list have changed or added or removed and plays
+   a crucial role in handling UI updates efficiently.
+
+The key prop is a special attribute we need to include when creating lists of elements.
+Keys give the elements a stable identity.
+An important point to keep in mind about key prop is that they are not accessible in the
+child components.
+
+Key prop is something React needs to render the list efficiently. If we're trying to pass 
+down a value to be used in the child component, we must pass it as a different prop. KEY 
+prop is reserved.
+
+
