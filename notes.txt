@@ -176,4 +176,4 @@ Binding Event Handlers :-
     simplest way to pass parameters from the child component to the parent component.
     
   : Again, refer the files --> ParentComponent.js & ChildComponent.js where in we have 
-    successfully passed a paremeter from the child to the parent.
+    successfully passed a parameter from the child to the parent.
