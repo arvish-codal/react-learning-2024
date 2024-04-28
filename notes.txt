@@ -177,3 +177,10 @@ Binding Event Handlers :-
     
   : Again, refer the files --> ParentComponent.js & ChildComponent.js where in we have 
     successfully passed a parameter from the child to the parent.
+
+4 approaches for conditional rendering :-
+  - if/else, element variables, ternary conditional operator, short circuit operator.
+
+Element Variables - In this approach, we use JavaScript variables to store elements. This 
+                    will also help us conditionally render the entire component or only a 
+                    part of the component as well.
