@@ -201,4 +201,12 @@ Key prop is something React needs to render the list efficiently. If we're tryin
 down a value to be used in the child component, we must pass it as a different prop. KEY 
 prop is reserved.
 
+Styling React Components - 4 approaches (3 to be discussed in the course)
+
+1. CSS StyleSheets --> files to look in -> Stylesheet.js & myStyles.css
+2. Inline styling  --> Create an object and apply it to the style attribute -> check Inline.js file 
+3. CSS Modules  --> files to look in --> appStyles.css, appStyles.modules.css
+4. CSS in JS Libraries
+
+
 
