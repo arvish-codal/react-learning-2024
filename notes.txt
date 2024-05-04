@@ -208,5 +208,16 @@ Styling React Components - 4 approaches (3 to be discussed in the course)
 3. CSS Modules  --> files to look in --> appStyles.css, appStyles.modules.css
 4. CSS in JS Libraries
 
+In regular HTML, form elements like input, textarea & so on are responsible on their own to handle 
+the user input and update their respective values, but what we want is for React to control the 
+form elements instead. Such form elements whose value is controlled by React is called a
+controlled component.
 
+When we assign a handler to the onChange event, the event itself is passed as a parameter to the 
+handler. (Check `handleUsernameChange` function in Form.js file)
+
+When we dismiss the alert , the page refreshes and the filled in data is lost. To avoid this, we 
+simply add an `event.preventDefault` call. This will prevent default behaviour of form submission.
+
+As a part of code cleanup, it's always good to destructure the state properties in the render method.
 
