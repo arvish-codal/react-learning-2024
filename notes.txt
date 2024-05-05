@@ -240,7 +240,7 @@ Lifecycle method available for a class component :- Those methods can be classif
    - static getDerivedStateFromProps( props, state) -- When the state of the component depends on changes in props over time. We can use this method to set the state.
    - render() -- We simply read this.props and this.state and return JSX which describes the UI.
    - componentDidMount() -- This method is called only once in the whole lifecycle of a given component and it is invoked immediately after a component and all its
-                            children component have been rendered to the DOM. We can use this method to interact with the DOM or perform any Ajax calls to load the data.
+                            children components have been rendered to the DOM. We can use this method to interact with the DOM or perform any Ajax calls to load the data.
                             It is a good place to perform initialization that requires DOM nodes and also load data by making network requests.
 
 2) Updating lifecycle methods 
@@ -289,3 +289,87 @@ React Fragments :-
 - Fragments basically lets you group a list of children elements without adding extra nodes to the DOM.
 - FragmentDemo.js --> If we add <div> to enclose h1 & p, there will be an extra div tag added after the app.js div.
                       To remove that extra node being added, we use `React.Fragment` instead. 
+
+So far, we've creating Class Components by extending the `Component` class from React. (for ex - class App extends Component)
+There is 1 more class from which we can extend. And that is `PureComponent`.
+
+What is the difference between the `Component` class and the `PureComponent` class ?
+> Look at the files -- ParentComp.js, PureComp.js, RegComp.js -- What we're concerned about in those examples though is when 
+  the render method is called in each of the components.
+
+  All 3 components are like this :- 
+   - class ParentComp extends Component
+   - class RegComp extends Component
+   - class PureComp extends PureComponent
+
+> After adding necessary console.log statements and rendering the ParentComp, we observe --> 
+  - Initially we've Parent Render, Regular Component render & Pure component render.
+  - But after that, every 2 seconds the setState method is called which will re-render the parent component.
+    And if the parent component re-renders, the child components will also re-render unless we return `False` from 
+    shouldComponentUpdate.
+  - So, ideally we should see the render from both regular & pure components being logged. However, that's not the case.
+    EVERY 2 seconds, ParentComp & the RegComp are re-rendered but the PureComp is never re-rendered.   
+
+  THIS IS THE DIFFERENCE BETWEEN THE Regular Component Class & the Pure Component Class. 
+
+   - A regular component does not implement the `shouldComponentUpdate` method. It always returns `True` by default.
+   - A pure component on the other hand implements `shouldComponentUpdate` with a shallow prop and state comparision. (%%%^)
+
+   What exactly is Shallow props and state comparision ?
+   > We can get more idea of it with respect to Primitive & Complex types.
+
+   > For two primitive types a & b like numbers,
+     strings & boolean. a (SC) b (i.e read as a shallowComparision b) returns true if a & b have the same value and are of the same type. 
+     For example, if `a` and `b` are both strings with the value `Arvish`, the shallow comparision returns True.
+
+   > For complex types like objects & arrays, a (SC) b returns True if a & b reference the exact same object.
+     Consider the examples below to understand it.
+
+     var a = [1,2,3];
+     var b = [1,2,3];
+     var c = a;
+
+     var ab_eq = (a === b); // false because even though the items in both the arrays are the same, those 2 arrays do not reference the same object.
+     var ac_eq = (a === c); // true because they point to the same object.
+
+     Same is the case with objects as well.
+
+     var a = { x:1, y:2 };
+     var b = { x:1, y:2 };
+     var c = a;
+
+     var ab_eq = (a === b); // false 
+     var ac_eq = (a === c); // true 
+
+     Continuing from (%%%^) :-
+     >  It does a shallow comparision of previous state with current state & previous props with current props.
+        And ONLY WHEN the shallow comparision indicates there is a difference , THE COMPONENT WILL RE-RENDER.
+
+     In our example, we're dealing with primitive types & props comparision. We're sending a prop which is of type
+     string and has a value of `Arvish`. Every 2 seconds the pure component sees that the previousProp value of `Arvish`
+     is no different from the currentProp value of `Arvish` AND HENCE DOES NOT RE-RENDER.
+
+     And because a regular component does not implement this check, IT'LL ALWAYS RE-RENDER. 
+
+     What we've seen is a shallow comparision of Props, but it's pretty much the same for state comparision as well.
+
+     We shall now change the ParentComponent to extend PureComponent instead of the RegularComponent class.
+     Like this --> class ParentComp extends PureComponent
+
+     If we now take a look at the browser, we'll see that there is the initial rendering of all the components :- Parent, Regular & Pure.
+     This time, two seconds later there's no re-render.
+
+     The ParentComp checks previous state with current state and sees that THERE'S NO DIFFERENCE and hence THERE'S NO RE-RENDER.
+     But, what we should keep in mind is if the Parent doesn't re-render, the children also will never re-render and that's why we didn't 
+     see any statement logs in the two second intervals.
+
+     So, now we can answer WHY to use PureComponents ? 
+     > Pure components by preventing unnecessary renders can give you a performance boost in certain scenarios.
+     > For example, let's say you're rendering a list of 50 items. By not re-rendering them when it is not required, 
+       they're going to have a good performance boost.
+
+       A KEY POINT to keep in mind is that you should not mutate objects or arrays in props or state.
+       For example, if you need to add a new item to the list, we shouldn't mutate it by pushing the item 
+       into the list. The reference to the array never changes and because PureComponent's only check for that,
+       the component will not re-render even if there's a difference. ALWAYS RETURN A NEW OBJECT OR ARRAY WHEN 
+       DEALING WITH PURE COMPONENTS.
