@@ -25,6 +25,7 @@ class Eventbind extends Component {
     // Arrow function for the 4th Approach. `this` keyword gets the expected value 
     // within the handler method.
     clickHandler = () => {
+        console.log('28', this)
         this.setState({
         'message': 'GoodBye'
     })
