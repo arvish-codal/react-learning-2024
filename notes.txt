@@ -373,3 +373,14 @@ What is the difference between the `Component` class and the `PureComponent` cla
        into the list. The reference to the array never changes and because PureComponent's only check for that,
        the component will not re-render even if there's a difference. ALWAYS RETURN A NEW OBJECT OR ARRAY WHEN 
        DEALING WITH PURE COMPONENTS.
+
+       It is also a good idea to ensure that all the children components are also pure to avoid unexpected behaviour.
+       When using PureComponents, never mutate the state. Always return a new object that reflects the new state.
+
+
+Pure Components only re-render the class components when there is a difference in the shallow comparision of props and 
+state. This of-course results in a performance improvement. Pure components THOUGH ONLY WORK WITH CLASS BASED COMPONENTS.
+
+It would be nice if we could achieve the same in functional components as well. That is where React.MEMO comes into the picture.
+What PureComponents is to class based components, MEMO is to functional components.
+
