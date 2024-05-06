@@ -398,3 +398,29 @@ Check file - RefsDemo.js to learn how to add Refs to normal HTML element like th
 
 It is also possible to add a ref to a class component. (If at all we need a ref to a child component from a parent component)
 Check Files - Input.js & FocusInput.js
+
+(video 30) => Forwarding Refs - It is a technique for automatically passing a ref through a component to one of its children. 
+Check Files - FRInput.js & FRParentInput.js
+
+What we want to achieve is when we click on the button in the parent component, the input in the child component should 
+receive focus. Unlike the last video (i.e video no 29 -- files = Input.js & FocusInput.js) where the ref was pointing to 
+the class component, in this video ( video no 30 ), we'll use the forwarding ref technique to allow the parent component
+to directly reference the native input element. (i.e from Child to Parent)
+
+Difference between video 29 & video 30 :- 
+- For anyone who is confused between the previous video and this, let me break it down for you.
+'ref 'in React  is basically used to access HTML nodes, in the previous we learned that refs can also be used to access components in React, in a similar way we did the HTML element. 
+In this video we referenced the Child Component as well, but then we used React.forwardRef() to forward the reference from the child component to the input element inside the component.
+
+Thus we were directly able to access the focus() method of <input> tag directly in our Parent Component via this.inputRef.current.focus(). if we would'nt have forwarded the ref we 
+could'nt have accessed it directly via  the current object.
+
+REMEMBER - Every functional component receives props as it's parameter. 
+ALSO - When a component is passed as a parameter to the createRef method, 
+       it receives the ref attribute as its second parameter (check file FRInput.js)
+       That ref parameter will point to the value of the ref attribute from the 
+       Parent Component. 
+
+In FRParentInput.js, the ref is being forwarded from the parent component to the 
+native input element.  
+
