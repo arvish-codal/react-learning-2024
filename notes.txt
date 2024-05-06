@@ -384,3 +384,17 @@ state. This of-course results in a performance improvement. Pure components THOU
 It would be nice if we could achieve the same in functional components as well. That is where React.MEMO comes into the picture.
 What PureComponents is to class based components, MEMO is to functional components.
 
+REFS - They make it possible to access DOM nodes directly within react. They're used to access & modify the DOM elements in the 
+       React Application. It creates a reference to the elements and uses it to modify them.
+
+       Refs are a function provided by React to access the DOM element and the React elements created in components. They are used 
+       in cases where we want to change the value of a child component, without making use of props and state.
+
+ Ex  - We might want to achieve something like this --> As soon as the page loads, we a particular input field to be focused.
+
+Second possible use case for using refs would be to fetch the input value.
+One way to create access refs is using `React.createRef()`. React also supports a second way to set refs which is called as callback refs.
+Check file - RefsDemo.js to learn how to add Refs to normal HTML element like the input element.
+
+It is also possible to add a ref to a class component. (If at all we need a ref to a child component from a parent component)
+Check Files - Input.js & FocusInput.js
