@@ -422,5 +422,13 @@ ALSO - When a component is passed as a parameter to the createRef method,
        Parent Component. 
 
 In FRParentInput.js, the ref is being forwarded from the parent component to the 
-native input element.  
+native input element.
+
+React Portals :-
+- They provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent 
+  component.
+
+- So far, we've had one DOM element in our HTML that we were mounting the React application into. Check
+  public/index.html, we can see <div id="root"></div> .
+
 
