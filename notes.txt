@@ -22,6 +22,20 @@ https://github.com/facebook/create-react-app
 -> The folder in which all the depencencies are installed. Generated when we run `npm install` or `create-react-app`
    command.
 
+What is ReactDOM.render( <App />, document.getElementById('root) ) in index.js ?
+> Here, we specify the root component which is <App /> and the DOM element which'll 
+  be controlled by React. The DOM element in our case is an element with the ID = root 
+  which is defined in index.html. We call this div element as the Root DOM node because 
+  everything inside it will be controlled by React.
+
+> For the Hello World component (see video 2), the App component is rendered inside the 
+  root DOM node.
+
+> ReactDOM renders the App component on to the Root DOM node.
+
+> There's one component to contain every other component. The containing component is the 
+  root component and is usually named as App component in your application.
+
 * Functional Component & Class Component 
 -> What is the advantage of using one over the other and when 
    exactly should you use a particular component type ?
@@ -429,6 +443,13 @@ React Portals :-
   component.
 
 - So far, we've had one DOM element in our HTML that we were mounting the React application into. Check
-  public/index.html, we can see <div id="root"></div> .
+  public/index.html, we can see <div id="root"></div> . In index.js, we use ReactDom.render and mount our 
+  app component on to the root element. 
+
+- When we look at the browser, In the DOM tree every single React component in our application falls under 
+  the root element i.e the div element with the ID = root.
+
+- What React portals provide is the ability to BREAK OUT of this DOM tree. So, we can render a component onto a 
+  DOM node that is not under this root element.
 
 
