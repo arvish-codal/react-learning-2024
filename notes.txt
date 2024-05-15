@@ -431,4 +431,10 @@ React Portals :-
 - So far, we've had one DOM element in our HTML that we were mounting the React application into. Check
   public/index.html, we can see <div id="root"></div> .
 
+- In our React application, even though all the components are children to the app component and the app 
+  component is mounted onto the Root DOM node, it is possible to break away from that and mount on any DOM 
+  node that we wish to using react portals.
+
+- The first parameter to createPortal method can be any element that React can render. It can be numbers, 
+  strings, JSX or even components.
 
