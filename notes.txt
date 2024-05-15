@@ -452,4 +452,10 @@ React Portals :-
 - What React portals provide is the ability to BREAK OUT of this DOM tree. So, we can render a component onto a 
   DOM node that is not under this root element.
 
+- In our React application, even though all the components are children to the app component and the app 
+  component is mounted onto the Root DOM node, it is possible to break away from that and mount on any DOM 
+  node that we wish to using react portals.
+
+- The first parameter to createPortal method can be any element that React can render. It can be numbers, 
+  strings, JSX or even components.
 
