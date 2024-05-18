@@ -30,13 +30,16 @@ import Hero from './components/Hero';
 import ErrorBoundary from './components/ErrorBoundary';
 
 import PortalDemo from './components/PortalDemo';
+import ClickCounter from './components/ClickCounter';
+import HoverCounter from './components/HoverCounter';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <ErrorBoundary>
+        <ClickCounter />
+        <HoverCounter />
+        {/* <ErrorBoundary>
         <Hero heroName="Batman" />
         </ErrorBoundary>
 
@@ -46,10 +49,10 @@ class App extends Component {
 
         <ErrorBoundary>
         <Hero heroName="Joker" />
-        </ErrorBoundary>
+        </ErrorBoundary> */}
 
 
-        <PortalDemo /> {/* Here, if we click inspect element, we'll see that element falls under the root element. */}
+        { /* <PortalDemo /> */} {/* Here, if we click inspect element, we'll see that element falls under the root element. */}
 
         {/* <FRParentInput /> */}
         {/* <FocusInput /> */}
