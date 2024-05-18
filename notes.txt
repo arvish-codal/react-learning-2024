@@ -431,4 +431,27 @@ React Portals :-
 - So far, we've had one DOM element in our HTML that we were mounting the React application into. Check
   public/index.html, we can see <div id="root"></div> .
 
+The error handling phase includes two lifecycle methods.
+ - static getDerivedStateFromError(error)
+ - componentDidCatch(error, info)
 
+Runtime errors during rendering could put our application in a broken state. React basically unmounts the 
+whole react component tree. What would be great is if we could catch the errors anywhere in the component 
+tree and display a fallback UI. This is where error boundaries take the spotlight.
+
+What exactly is the error boundary ?
+> A class component that implements either one or both of the lifecycle methods `getDerivedStateFromError`
+  or `componentDidCatch` becomes an error boundary.
+
+  getDerivedStateFromError - Used to render a fallback UI after an error is thrown.
+  componentDidCatch        - Used to log the error information.
+
+  Error boundaries are React Components that catch JavaScript error in their child component tree, log those 
+  errors and display a fall-back UI.
+
+  The placement of the error boundary also matters as it controls if the entire app should have the fall-back 
+  UI or just the component causing the problem.
+
+Error boundaries catch errors during rendering in lifecycle methods and in the constructors of the whole tree 
+below them. However, they do not catch errors inside event handlers. If we have an onClick handler and wish to 
+catch and error, we just need to use the regular try-catch statements and not error boundaries.
