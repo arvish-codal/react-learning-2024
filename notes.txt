@@ -486,7 +486,7 @@ Error boundaries catch errors during rendering in lifecycle methods and in the c
 below them. However, they do not catch errors inside event handlers. If we have an onClick handler and wish to 
 catch and error, we just need to use the regular try-catch statements and not error boundaries.
 
-Higher Order Components 
+Higher Order Components :-
 
  > In the files - clickCounter & HoverCounter, we have the counter functionality which could have been re-used 
    but instead has been duplicated. So if 10 different components needed a counter functionality, we'd be writing 
@@ -502,3 +502,16 @@ Higher Order Components
 
  > There is a need to share common functionality between components without repeating code and that is where the
    concept of higher-order components comes into picture.
+
+ > A higher order component is a pattern where a function takes a component as an argument and returns a new component.
+   Something like this - const newComponent = higherOrderComponent( originalComponent )
+
+   Typically, an HOC adds additional data or functionality to the original component so the new component can also be 
+   referred to as enhanced component.
+
+> In video 34, until 5:32 min - Our HOC (withCounter.js) injects a `name` prop to any component required. For our counter 
+  example though, that's not really what we want. We want the counter functionality to be shared amongst the components.
+
+  After making the required changes (till 6:38 min), in HOC we need to pass down the state and the incrementCount method as 
+  props so that the original component can make use of that functionality. The HOC pattern is used to share common functionality 
+  between components without having to repeat the code.
