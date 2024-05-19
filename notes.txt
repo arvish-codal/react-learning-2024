@@ -539,5 +539,18 @@ THIS IS WHERE `CONTEXT` comes into picture.
 
 > Every Context object created using the createContext method comes with a provider and a consumer React component.
 
+Two more points about the Context API: 
+ - We can set a default value to our context. It is set while creating the context. Comment out the Provider component to see 
+   the default value. Default value will only be used when a component does not have a matching provider above it in the 
+   component tree.
 
+ - We've used the consumer component to consume the context value. There's another way to do that i.e the context type property
+   on a class.
+
+ - ContextType syntax looks much simpler than consumer component syntax. There are however two limitations with context type.
+    - 1) It only works with class components.
+    - 2) Second limitation is you can only subscribe to a single context using context type.
+    
+   Many a times in our application, we need to read more than one context in which scenario the consumer component is the way
+   to go.
 
