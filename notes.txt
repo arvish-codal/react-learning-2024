@@ -524,3 +524,20 @@ Higher Order Components :-
 
   What is Render Props ? 
   > The term `render prop` refers to a technique for sharing code between React Components using a prop whose value is a function. 
+
+
+Passing down props manually at every level becomes a problem for certain types of props such as language preference, UI theme & 
+authenticated user which are pretty much required by many components in our application. What would be nice is if we could directly 
+send data to the required component without having to manually drill down the props through evety level of the component tree. 
+THIS IS WHERE `CONTEXT` comes into picture.
+
+> Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+> 3 steps to follow in here 
+  (i)   Create the Context
+  (ii)  Provide a Context value 
+  (iii) Consume the Context value in the necessary components
+
+> Every Context object created using the createContext method comes with a provider and a consumer React component.
+
+
+
