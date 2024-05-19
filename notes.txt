@@ -515,3 +515,12 @@ Higher Order Components :-
   After making the required changes (till 6:38 min), in HOC we need to pass down the state and the incrementCount method as 
   props so that the original component can make use of that functionality. The HOC pattern is used to share common functionality 
   between components without having to repeat the code.
+
+  As we've learnt till now that the HOC pattern is used to share common functionality between components without having to repeat 
+  the code. There's an another pattern for sharing code between react components which is the `render props` pattern.
+
+> Video 37 => At 3:48 min => In React, it is possible to use a prop whose value is a function to control what is actually rendered 
+                             by a component. THIS IS PRETTY MUCH WHAT THE RENDER PROPS PATTERN IS BASED ON !
+
+  What is Render Props ? 
+  > The term `render prop` refers to a technique for sharing code between React Components using a prop whose value is a function. 

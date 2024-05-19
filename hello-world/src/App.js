@@ -32,13 +32,35 @@ import ErrorBoundary from './components/ErrorBoundary';
 import PortalDemo from './components/PortalDemo';
 import ClickCounter from './components/ClickCounter';
 import HoverCounter from './components/HoverCounter';
+import ClickCounterTwo from './components/ClickCounterTwo';
+import HoverCounterTwo from './components/HoverCounterTwo';
+import User from './components/User';
+import CounterTwo from './components/CounterTwo';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <ClickCounter name = 'Arvish'/>
-        <HoverCounter />
+        
+        <CounterTwo 
+          render = { (count, incrementCount) => (
+           <ClickCounterTwo count={count} incrementCount={incrementCount} />
+          )}
+        />
+
+        <CounterTwo 
+          render = { (count, incrementCount) => (
+           <HoverCounterTwo count={count} incrementCount={incrementCount} />
+          )}
+        />
+    
+        {/* <ClickCounterTwo />
+        <HoverCounterTwo />
+        <User render={ (isLoggedIn) => isLoggedIn ? 'Arvish' : 'Guest' } />  */}
+        
+        {/* <ClickCounter name = 'Arvish'/> */}
+        {/* <HoverCounter /> */}
+        
         {/* <ErrorBoundary>
         <Hero heroName="Batman" />
         </ErrorBoundary>
