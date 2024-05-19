@@ -550,7 +550,9 @@ Two more points about the Context API:
  - ContextType syntax looks much simpler than consumer component syntax. There are however two limitations with context type.
     - 1) It only works with class components.
     - 2) Second limitation is you can only subscribe to a single context using context type.
-    
+
    Many a times in our application, we need to read more than one context in which scenario the consumer component is the way
    to go.
+
+ - When we change state (with `setState`), the component re-renders.
 
