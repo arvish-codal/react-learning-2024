@@ -597,3 +597,7 @@ Why HOOKS ?
 
     - This is another problem that HOOKS solves. Rather than forcing a split based on lifecycle methods, HOOKS let us split
       one component into smaller functions based on what pieces are related.
+
+
+> A Hook is just a special function that lets you hook into React features. So `useState` is a hook that lets you add react state to 
+  functional components.
