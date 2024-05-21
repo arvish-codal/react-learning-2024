@@ -558,3 +558,42 @@ Two more points about the Context API:
 
 What are Hooks ?
 > Hooks are a new feature addition in React version 16.8 which allow us to use React features without having to write a class.
+
+For ex - state of a component
+Earlier - we could use `state` only within class components. With hooks, it is now possible to use state and also other React
+features without writing a class. Hooks DON'T WORK inside classes.
+
+Why HOOKS ?
+> Reason-1 : This reason is more related to JavaScript than React itself.
+    - Necessary to understand how `` keyword works in JavaScript.
+    - Remember to bind event handlers in class components.
+    - Classes don't minify very well and make hot reloading very unreliable.
+
+    - With HOOKS, since we're not working with classes anymore, we'll not have to face these 
+      problems.
+
+
+> Reason-2 : There's no particular way to reuse stateful component logic.
+    - HOC and render props patterns do address this problem, but we'd have to restructure our components which could result in 
+      awkward looking code.
+
+    - We end up wrapping our components with several other components to share the functionality.
+      This makes the code harder to follow. There's a need to share the stateful logic in a better way.
+
+    - HOOKS help us in this aspect by allowing us to reuse stateful logic without changing our component hierarchy.
+
+
+> Reason-3 : The final reason is to do with how code is placed in a component and the fact that complex components become hard 
+             to understand.
+
+    - When we had to create components complex scenarios such as data fetching & subscribing to events, related code is not 
+      organized in one place, but scattered across different lifecycle methods.
+
+    - For example, data fetching is usually done in componentDidMount and sometimes also in componentDidUpdate.
+    - If we've to set event listeners, you set them up in componentDidMount and unsubscribe in componentWillUnMount
+
+    - Because of the stateful logic, in many cases it's not possible to break this components into smaller ones.
+      It'd be so much better if all the related code was together. 
+
+    - This is another problem that HOOKS solves. Rather than forcing a split based on lifecycle methods, HOOKS let us split
+      one component into smaller functions based on what pieces are related.
