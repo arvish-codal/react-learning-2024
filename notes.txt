@@ -556,3 +556,5 @@ Two more points about the Context API:
 
  - When we change state (with `setState`), the component re-renders.
 
+What are Hooks ?
+> Hooks are a new feature addition in React version 16.8 which allow us to use React features without having to write a class.
