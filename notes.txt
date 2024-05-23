@@ -640,3 +640,12 @@ Why HOOKS ?
      Whenever the `addItem` is called, we make a copy of all the items in the array using the spread operator.
      To that list of copied items, we simply append another object. That way, we're not overwriting the original array.
     
+
+useEffect Hook :-
+------------------
+
+> It'd be nice to not repeat code and at the same time group together only the related code. That is where the effect hook 
+  comes into picture.
+
+> The effect hook lets us perform side effects in functional components. It is a close replacement for `componentDidMount`, 
+  `componentDidUpdate` and `componentWillUnMount`. Three lifecycle methods can be handled by the useEffect hook.
