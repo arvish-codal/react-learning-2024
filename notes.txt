@@ -601,3 +601,42 @@ Why HOOKS ?
 
 > A Hook is just a special function that lets you hook into React features. So `useState` is a hook that lets you add react state to 
   functional components.
+
+  The useState hook returns an array with two elements. The first element is the current value of the state, and the second element is 
+  a state setter function. We can call the setter function with a new value to set the state which will in-turn cause the component to 
+  re-render.
+
+> Anytime if we need to update the state value based on the previous state value, always go with the option of passing in a function
+  to the stateSetter that'll set the new state value. Here, the setter function receives the previous state as an argument to the function.
+
+> In classes, the state is always an object.
+> With the useState hook, A state variable can be a string, a number, a boolean, an object or even an array. We can use any of these types based on our
+  requirement.
+
+  In Video 47 (React Hooks - useState with Object), from 4:30, 
+  > When we console the state, we'll see that by default both firstName & lastName set to empty strings.
+
+  > But when we start typing out the firstName, we observe that the lastName property is removed from the
+    state variable.
+
+  > If we start typing out the lastName, the firstName property disappears from the state variable.
+   
+  > THE REASON THIS HAPPENS IS BECAUSE `useState` does not automatically merge and update the object.
+    This is a key difference to `setState` which we came across in Class components. `setState` will merge the state whereas the 
+    `useState` hook setter function will not merge the state. We'll have to do it manually. We can use the spread operator to
+    handle the manual merge.
+
+    Code'll be like this --> 
+     onChange={e => setName( { ...name, firstName: e.target.value })}
+     onChange={e => setName( { ...name, lastName: e.target.value })}
+
+    How we interpret this is, 'Copy every property in the name object and then just overwrite the first name field with a different 
+    value.' same for the other line regarding lastName.
+
+    HENCE, the key point here is `The setter function provided by the useState hook does not automatically merge and update objects.
+    We have to manually merge it ourselves and then pass the value to the setter function.`
+
+  > In video 48 - React Hooks (useState with Array),
+     Whenever the `addItem` is called, we make a copy of all the items in the array using the spread operator.
+     To that list of copied items, we simply append another object. That way, we're not overwriting the original array.
+    
