@@ -684,3 +684,65 @@ We've do the changes such that React conditionally runs useEffect only when the 
 > Therefore, in order to conditionally run an effect specify the second parameter to `useEffect`. The 
   second parameter is the array of values that the effect depends on. If the values don't change 
   between renders, the effect is simply not run.
+
+  We can also make changes to run effect only ones. This is similar to mimicking componentDidMount of Class 
+  components with the use of `useEffect` & functional components.
+
+In the Class Component Approach (Video 52 - Until 1:05 min),
+ > Take a note that we've setup the event listener only once and that is in componentDidMount.
+
+In the Functional Component approach (useEffect Hook), 
+ > At 3:22 min, we'll see useEffect consoled from the initial render and now when we move the mouse around, 
+   we can see that the effect is called every time the component re-renders.
+
+ > Here, the effect is called after every re-render unless we specify the dependency array. For our example, 
+   we don't want effect to depend on anything. We want it to be called once on initial render only.
+
+ > The way we achieve that is by simply specifying an empty array as the second parameter to useEffect.
+   What it means is this particulat effect does not depend on any props or state. So, there is just no
+   reason for you to call this effect on re-renders.
+
+ > Once we're done with these changes and check the browser, we'll see that `useEffect` is called only on 
+   initial render & WHEN WE MOVE THE MOUSE AROUND, WE ONLY HAVE THE MOUSE EVENT LOGS. `useEffect` is not 
+   called on subsequent renders. 
+
+
+******* IMP *******
+
+From the last point, there comes a question. 
+
+>>> The setX & setY are called inside logMousePosition, which is inside the useEffect. If useEffect is not
+    called after a re-render how did the logMousePosition got called and state is changed ?
+    
+>>> Another way to ask this is :- If we're restricting useEffect on-load itself then how event listener is 
+    working afterward, as it is nested inside useEffect hook. So if useEffect hook is executing only one
+    time, then how nested function is executing again & again ?? 
+
+
+ANSWER - THE NESTED FUNCTION STILL EXECUTES because the addEventListener method is purely JavaScript. Even
+         though the `useEffect` never executes again after the first rendering, JavaScript knows to listen
+         to the `mousemove` event as it was already set.
+
+         EVENT LISTENERS are attached only once and they keep running until we remove them or reload the
+         page. EVENT LISTENERS in JS are called only once and it continue to listen until is is
+         specifically removed.
+
+         Because when useEffect runs the first (and only) time, it attaches an event listener with a callback function. 
+         That callback function runs every time the mousemove event is triggered, and this is independent of useEffect running 
+         since the listener is already attached. The callback function "logMousePosition" is what is logging to the console everytime 
+         the mouse moves, not useEffect. This listener will continue listening and calling the logMousePosition function until the listener 
+         is explicitly removed somewhere else in the code.
+
+         THEREFORE once the instance of the eventListener has been created, it is supposed to keep an eye on all the 
+         events in future until the listener is removed from the code.
+
+         Read more about that here --> https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
+                                       https://medium.com/@elizabethkosowski/event-listeners-with-the-event-loop-c8040bb6fb0e
+
+
+
+
+
+
+
+
