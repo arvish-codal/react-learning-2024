@@ -740,6 +740,31 @@ ANSWER - THE NESTED FUNCTION STILL EXECUTES because the addEventListener method 
                                        https://medium.com/@elizabethkosowski/event-listeners-with-the-event-loop-c8040bb6fb0e
 
 
+useEffect Hook - Video 53 - Mimic `componentWillUnMount` functionality
+************************************************************************
+
+> From 2:05 min, we've a button and the mouse co-ordinates. When we move the mouse around, we can see the co-ordinates updating &
+  the log statements printed every time the mouse moves.
+
+> Now at 2:16 min, we shall click the `Toggle Display` button. This will effectively unMount the component from the DOM. 
+
+> Now, when we try to move the mouse we can see the statement `Mouse event` still being logged. So, even though the component has 
+  been removed, the event listener which belongs to that component is still listening & executing.
+
+> We'll see a warning in the console as well which indicates the same (NOTE - warning might not be visible in new versions of React). 
+  We cannot perform a React state update on an unmounted component. It indicates a memory leak in your application. 
+  
+> In simpler words, React is telling us `Hey you've unmmounted the component, but when you
+  move your mouse around you're asking me to update the state variables for X & Y co-ordinates. The only problem is that component has been 
+  unmounted. When you unmount a component, make sure you cancel all your subscriptions & listeners.` In other words, clean up after your
+  component.
+
+> Now, how do we handle the cleanup code ? --> We're familiar with class components and it was pretty straightforward over there. We had 
+  the `componentWillUnMount` lifecycle hook where we could add `window.removeEventListener`. We've to mimic the same lifecycle functionality 
+  in useEffect.
+
+> The function that is passed to `useEffect` can return a function which will be executed when the component will unmount. So, whatever we 
+  return is basically our cleanup function. Read this to understand more --> https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/
 
 
 
