@@ -780,3 +780,9 @@ Remember :-
  
  Instead, dependency array should be thought of as a way to let react know about everything that the effect 
  must watch for changes.
+
+ Some helpful links :- 
+* https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+* https://developer.mozilla.org/en-US/docs/Web/API/clearInterval
+* https://www.htmlallthethings.com/blog-posts/why-do-we-use-const-to-declare-arrow-functions-in-javascript#:~:text=Declaring%20Arrow%20Functions%20with%20Const&text=Constant%20variables%20are%20read%2Donly,from%20accidental%20deletion%20or%20manipulation.
+* https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state
