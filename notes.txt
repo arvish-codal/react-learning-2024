@@ -811,3 +811,10 @@ We get access to previous count and we set previous count + 1. (Read this to und
 Now since setCount keeps track of the previous count value, we don't have to specify count as a dependency and that array can again be set to [].
 
 `useState & `useEffect` hooks can also be used to fetch data from an API endpoint.
+
+Earlier, in class components we used render props method for the context value to be consumed in nested chiled components.
+
+It can be achieved in a fairly easy manner with the help of `useContext` hook.
+
+We have to call the `useContext` function passing in the context as its argument. useContext returns the context value. So, ideally we should be
+assigning the function call to a variable.
