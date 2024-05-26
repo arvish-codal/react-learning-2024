@@ -766,8 +766,11 @@ useEffect Hook - Video 53 - Mimic `componentWillUnMount` functionality
 > The function that is passed to `useEffect` can return a function which will be executed when the component will unmount. So, whatever we 
   return is basically our cleanup function. Read this to understand more --> https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/
 
+> The point to make note of here is that when you want to execute some component cleanup code, we include it in a function and return that
+  function from the function passed to `useEffect`. The cleanup code can be cancelling subscriptions, timers or even removing event handlers.
 
-
-
+NOTE - When strict mode is on, in development, React runs setup and cleanup on extra time before the actual setup.
+       Read more here --> https://react.dev/reference/react/useEffect#my-effect-runs-twice-when-the-component-mounts
+                          https://stackoverflow.com/questions/53183362/what-is-strictmode-in-react
 
 
