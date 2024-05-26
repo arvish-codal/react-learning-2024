@@ -13,6 +13,11 @@ import HookMouse from './components/HookMouse';
 import IntervalClassCounter from './components/IntervalClassCounter';
 import IntervalHookCounter from './components/IntervalHookCounter';
 import MouseContainer from './components/MouseContainer';
+import ComponentC from './components/ComponentC';
+import React from 'react';
+
+export const UserContext = React.createContext()
+export const ChannelContext = React.createContext()
 
 function App() {
   return (
@@ -31,7 +36,12 @@ function App() {
       {/* <IntervalClassCounter /> */}
       {/* <IntervalHookCounter /> */}
 
-      <DataFetching />
+      {/* <DataFetching /> */}
+      <UserContext.Provider value={'Arvish'}>
+        <ChannelContext.Provider value={'Codal'}>
+          <ComponentC />
+        </ChannelContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }
