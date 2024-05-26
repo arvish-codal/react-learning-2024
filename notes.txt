@@ -809,3 +809,5 @@ BTW, for this example there is another way to get it working without the depende
 We get access to previous count and we set previous count + 1. (Read this to understand more --> https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state)
 
 Now since setCount keeps track of the previous count value, we don't have to specify count as a dependency and that array can again be set to [].
+
+`useState & `useEffect` hooks can also be used to fetch data from an API endpoint.
