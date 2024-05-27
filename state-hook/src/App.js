@@ -15,6 +15,7 @@ import IntervalHookCounter from './components/IntervalHookCounter';
 import MouseContainer from './components/MouseContainer';
 import ComponentC from './components/ComponentC';
 import React from 'react';
+import CounterOne from './components/CounterOne';
 
 export const UserContext = React.createContext()
 export const ChannelContext = React.createContext()
@@ -37,11 +38,14 @@ function App() {
       {/* <IntervalHookCounter /> */}
 
       {/* <DataFetching /> */}
-      <UserContext.Provider value={'Arvish'}>
+      {/* <UserContext.Provider value={'Arvish'}>
         <ChannelContext.Provider value={'Codal'}>
           <ComponentC />
         </ChannelContext.Provider>
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+
+      <CounterOne />
+
     </div>
   );
 }
