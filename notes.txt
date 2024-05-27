@@ -818,3 +818,37 @@ It can be achieved in a fairly easy manner with the help of `useContext` hook.
 
 We have to call the `useContext` function passing in the context as its argument. useContext returns the context value. So, ideally we should be
 assigning the function call to a variable.
+
+
+useReducer Hook 
+*****************
+
+> This is a hook that is used for state management. We already have useState who does this.
+  `useReducer` is an alternative to `useState`.
+
+> useState is built using useReducer. So useReducer is a more primitive hook compared to useState.
+  
+> Reduce method in JavaScript -->  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+  The reduce method takes two parameters => the first parameter is the reducer function & the second parameter is an initial
+  value that the reducer function can make use of.
+
+  The reducer function itself accepts two parameters & reduces them down to a single value & then returns that value.
+
+> useReducer (reducer, initialState)  (the useReducer hook takes in 2 arguments. The reducer function & initial state.)
+  
+  newState = reducer(currentState, action)
+
+  With `useReducer`, the reducer function accepts two parameters. currentState & action. And this reducer function will
+  return a new state.
+
+  To put it roughly, the action parameter is what dictates the state transition from the currentState to the new State.
+  We can think of action as an instruction to the reducer function. Based on what the action specifies, the reducer
+  function performs the necessary state transition.
+
+  For our example, we've three actions --> increment, decrement & reset. The convention to execute code based on the
+  action is to use switch statements.
+
+  The useReducer hook on the other hand returns a pair of values => [newState, dispatch]
+  i.e the newState & dispatch method which is basically used to specify the action.
+
+  In nutshell, useReducer is basically changing the state in React components.
