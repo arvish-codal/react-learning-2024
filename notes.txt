@@ -879,3 +879,16 @@ THEREFORE, `By using action as an object, we are able to pass additional data to
             state as an object, we are able to keep track of multiple state variables.`
 
 This approach of maintaining multiple variables in a single state object is suited when dealing with global state.
+
+Here, we've maintained a state object to track two different counters. To update the second counter, we also had to 
+create additional switch cases in the reducer function. This approach is fine. But if we need two counters with the 
+exact same state transitions (i.e increment, decrement or reset), there is a much simpler alternative and that is 
+to use multiple useReducer hooks. (See file - CounterThree.js)
+
+```
+When dealing with multiple state variables that have the same state transitions ((i.e increment, decrement or reset)), 
+it is a good idea to have multiple useReducers making use of the same reducer function. 
+
+This will avoid the complexity of merging the state if it were to be an object and also prevents us from duplicating
+code in the reducer function (like we've already seen in CounterTwo.js)
+```
