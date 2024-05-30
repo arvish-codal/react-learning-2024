@@ -852,3 +852,30 @@ useReducer Hook
   i.e the newState & dispatch method which is basically used to specify the action.
 
   In nutshell, useReducer is basically changing the state in React components.
+
+  
+Video 63 - useReducer with state & action as objects.
+------------------------------------------------------
+
+What is the advantage of using this particular pattern ?
+> There are 2 scenarios where it might be helpful.
+ 1) The first scenario is concerning the value by which we need to increment or decrement the counter.
+    As of now we've increment by 1 as default. If we want to make it dynamic, it'd be easy if the action 
+    is an object. Right now, our action object has just one property which is action type. We can add a
+    second property called value which should be the number to increment or decrement the counter.
+    Therefore by making use of action as an object, we can use additional data in the reducer function.
+
+ 2) Here, we'll talk about state as an object. Suppose, we wanted to maintain two different counters. That 
+    turns out to be really simple if our state is an object. We can simply add another property to our state. 
+ 
+    At 5:53 min, we've two properties in the state object. We're changing only one at a time. To get the
+    expected output, we've to modify the return statements to merge the state properties. We can do this using 
+    spread operator.
+
+
+
+
+THEREFORE, `By using action as an object, we are able to pass additional data to the reducer function. By using 
+            state as an object, we are able to keep track of multiple state variables.`
+
+This approach of maintaining multiple variables in a single state object is suited when dealing with global state.
