@@ -10,8 +10,8 @@ function ComponentE() {
   return (
     <div>
         {/* Simply use the context values as below */}
-        {user} - {channel}
-      {/* <ComponentF /> */}
+        {/* {user} - {channel} */}
+      <ComponentF />
     </div>
   )
 }

@@ -892,3 +892,45 @@ it is a good idea to have multiple useReducers making use of the same reducer fu
 This will avoid the complexity of merging the state if it were to be an object and also prevents us from duplicating
 code in the reducer function (like we've already seen in CounterTwo.js)
 ```
+
+VIDEO 65 - How to apply `useReducer` with `useContext` to achieve global state management ?
+
+> So far, we've seen examples with `useReducer` for local state management. (i.e at the component level)
+> At some point, we might need to share the state between components - i.e. we might want to work with 
+  global state.
+
+> How can we do that - We can manage global state by combining useReducer along with useContext.
+
+> Consider an application with lot of components. We've App.js which is the root component and nested inside App.js,
+  we've components A,B & C. Let's say each of these components maintain their own counter. We can simply have useReducer 
+  used to implement a counter in all of these components.
+
+  In a different application, we might have a slightly different requirement. The three components i.e A,B & C all need 
+  to implement a Counter. But, this time they need to share the counter value. So instead of implementing three different 
+  counters, we need to implement one counter that is accessible by all the three components.
+
+  One approach to do this is to implement a global counter in App.js and pass in methods as props to the three components.
+  The components can then have handlers that call the props.
+
+  Unfortunately though, real world applications are not this simple. Our components will be nested deep within the component 
+  tree. And when there is deep level of nesting, passing props through every component is not the best solution.
+
+
+    App.js
+--  ******  --
+
+A      B      C
+ 
+       D      E
+
+              F
+
+GOAL - To maintain count state in App.js and modify that state from components A,D & F.
+Two STEPS to Achieve this - 
+  1) To create a counter in App.js using the reducer hook.
+  2) Provide and Consume the counter context in the required components. 
+
+In this implementation, for the `dispatch` method we don't want to `dispatch` any action from the app component.
+
+We want to be able to dispatch actions from the nested components. HERE, we've to make use of context to provide
+the count value and the dispatch method and consume the same from the nested components.
