@@ -36,4 +36,62 @@ have all the JSX in the parent component itself and make it simpler.
 
   To improve performance, we have to restrict re-renders to only components that need to re-render.
   
-  
+  So, how do we optimize this -> The answer is React.Memo , It is a HOC that'll prevent a functional component 
+  from being re-rendered if it's props or state do not change.
+
+  --- NOTE - React.Memo HAS NOTHING TO DO WITH HOOKS. It has been a feature since React Version 16.6 ---
+
+  To use memo, what we can do is when exporting the components, wrap them with React.Memo 
+  We add that in Button, Count & Title components.
+
+  >> If we click increment age now, we'll see fewer logs. But it is still not right. When we increment age, 
+     the button to increment salary is still being re-rendered. If we click on increment salary, VICE-VERSA.
+
+  >> WHY IS THIS HAPPENING ?
+     We see the title component. It has no props or state of its own and hence does not re-render when we
+     increment the age or salary.
+
+     Next, we've count & button related to age. Count accepts age as a prop & button accepts incrementAge as 
+     a prop which is dependent on age. (i.e the setAge setter function is dependent on age.). So, when the age 
+     increments, both the components i.e Count & Button related to age should be re-rendered. BUT, what we see
+     is that the increment salary button also re-renders. The count component for salary though does not 
+     re-render.
+
+     THIS IS BECAUSE a new `incrementSalary` function is created each time the parent component re-renders.
+     
+     ```IMP```
+     When dealing with functions, we always have to consider reference equality. Even though the two functions 
+     have the exact same behaviour, it does not mean they're equal to each other. Therefore, the function before 
+     the re-render is different to the function after the re-render and since the function is a prop, React.memo
+     sees that the prop has changed and will not prevent the re-render.
+     ```IMP```
+
+     And above is the same case when we increment salary as well. There is a new `incrementAge` function created
+     which will cause the `incrementAge` button to re-render.
+
+     SO, HOW DO WE FIX THIS ? HOW DO WE TELL REACT THAT THERE IS NO NEED TO CREATE A NEW INCREMENT SALARY FUNCTION
+     WHEN WE UPDATE THE AGE.
+
+     >>> THE ANSWER IS `USECALLBACK` HOOK 
+         -------------------------------- 
+
+What is useCallback hook ?
+> It is a hook that'll return a memoized version of the callback function that only changes if one of the dependencies 
+  has changed.
+
+ > If we relate this to our example, it means that the useCallback hook will cache the incrementSalary function and return
+   that if salary is not incremented.
+
+   If the salary does increment, i.e if the dependency has changed, ONLY THEN a new function will be returned.
+
+
+Why do we need useCallback ?
+> It is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.
+
+> Let's break it down - 
+  -> The first part is that it is useful when passing callbacks, i.e functions like incrementAge & incrementSalary.
+  -> The second part says to optimized child components. We currently have 3 child components that are optimized with React.memo (i.e 
+     Button, Count & Title) to prevent unnecessary re-renders.
+
+  REFERENCE EQUALITY - It is nothing but checking if the functions are equal which is required for our example.
+
