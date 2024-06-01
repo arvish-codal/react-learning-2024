@@ -297,7 +297,6 @@ NOTE :- `https://stackoverflow.com/questions/50819162/why-is-my-function-being-c
      - These two methods are called when there is an error either during rendering, in a lifecycle method, or in 
        the constructor of any child component.
 
-
 React Fragments :-
 
 - Fragments basically lets you group a list of children elements without adding extra nodes to the DOM.
@@ -524,7 +523,6 @@ Higher Order Components :-
 
   What is Render Props ? 
   > The term `render prop` refers to a technique for sharing code between React Components using a prop whose value is a function. 
-
 
 Passing down props manually at every level becomes a problem for certain types of props such as language preference, UI theme & 
 authenticated user which are pretty much required by many components in our application. What would be nice is if we could directly 
@@ -873,8 +871,6 @@ What is the advantage of using this particular pattern ?
     spread operator.
 
 
-
-
 THEREFORE, `By using action as an object, we are able to pass additional data to the reducer function. By using 
             state as an object, we are able to keep track of multiple state variables.`
 
@@ -935,7 +931,6 @@ In this implementation, for the `dispatch` method we don't want to `dispatch` an
 We want to be able to dispatch actions from the nested components. HERE, we've to make use of context to provide
 the count value and the dispatch method and consume the same from the nested components.
 
-
     VIDEO - 66 & 67 - Fetching data from an API endpoint
 *** ---------- ***
 
@@ -951,3 +946,60 @@ the count value and the dispatch method and consume the same from the nested com
 
   In Video 67, we've just replaced `useState` with `useReducer`. In doing so, we've grouped the related state
   variables together and at the same time, the state transitions are also grouped together.
+
+
+Video 68 - useState vs useReducer 
+---------------------------------
+
+> We already know that both useState and useReducer are used for state management.
+> We must understand when to use `useState` vs when to use `useReducer` :-
+
+ The first scenario depends on the type of the state variable. 
+  -> If we're trying to manage primitive types like `Number, String or Boolean`, useState is a better option.
+     For ex -> If we were to manage the count value as a state variable, useState is a better choice.
+
+  -> If we're going to manage an object or an array, useReducer might be better suited.
+     For Ex -> If we are going to manage a Person object that contains firstName, lastName & age, we're better
+               of using useReducer.
+
+The second scenario depends on the number of state transitions :-
+  -> If we are updating one or two state variables, useState should be fine. BUT, if we start seeing 5 or 10
+     separate setState calls, we should definitely consider moving that logic into a reducer function.
+
+     The main reason behind that is it makes your state transitions predictable. We would be updating several
+     state variables, but all of that would be happening in one place WHICH is the reducer function.
+
+The third scenario depends on how related the state transitions are :-
+  -> Related State Transitions ? -> IF yes, go with useReducer else go with useState.
+     When state transitions are related or say are tied to a specific action, we should choose `useReducer` .
+
+  -> Example of related state transitions - setting loading, error & post states in files (DataFetchingOne.js &
+     DataFetchingTwo.js)
+
+     We noted that all those state variables are updated together either when the data is fetched successfully
+     or when there is an error. With `useReducer`, our code becomes more predictable and more maintainable.
+     If everything were to be managed at different places with useState, it becomes harder to reason about.
+
+The fourth scenario depends on the business logic for the state transition. 
+  
+  -> If your state transition from an old value to a new value requires some business logic or even complex 
+     data transformation and manipulation, we're better of using the reducer hook.
+
+  -> That way, all our logic is localized to the reducer function and we have better separation of concerns.
+     
+     All our component has to do is dispatch the appropriate action. This again makes the code more readable 
+     and maintainable.
+
+The fifth scenario deals with LOCAL vs GLOBAL state.
+
+  -> If we want to maintain local component state, `useState` is a great choice.
+  -> However if we want to maintain global state, that can be altered by components deep in the component tree 
+     `useReducer` is a better option.
+
+     -> We will off-course use the `context` hook, but using the reducer hook over state hook has a very simple advantage.
+        With useReducer => We simply have to pass the one dispatch method down the component tree. That one dispatch method 
+        can update several state variables based on the action type.
+
+     -> With useState however, we would have to pass down multiple update functions ; one for each state.
+      
+  THEREFORE, FOR GLOBAL STATE MANAGEMENT `useReducer` is the better choice. 
