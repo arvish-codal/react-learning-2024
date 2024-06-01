@@ -1,0 +1,39 @@
+*************************************************
+Video 69 - useCallback Hook - WHAT, WHY & HOW ?
+*************************************************
+
+
+Initial structure - App.js has one component in it -- ParentComponent
+
+`ParentComponent` is simply a container for other components. (such as Button, Count & Title)
+The JSX of ParentComponent - Contains 5 components in total of which two are re-used with 
+                             different props.
+
+The children prop in Button component => `props.children` refers to the 'Increment Age' text in the 
+parent component.
+
+In nutshell, ParentComponent has got the following components - 
+   - a title component which simply renders a <h2> tag.
+   - a component to display a person's age & a component to increment the person's age.
+   - a component to display a person's salary & a component to increment the person's salary.
+
+
+WE MIGHT BE THINKING WHY do we need to break this down into 5 components ? Could we not just 
+have all the JSX in the parent component itself and make it simpler. 
+> We definitely could do that but we've written the code in this particular way because we need 
+  to understand about performance optimization & off-course the `useCallback` Hook.
+
+> PERFORMANCE OPTIMIZATION - Here, if we check the logs we see 5 log statements (1 from each component.)
+
+  If we clear the console & increment age, we see that every component is re-rendered even though we only 
+  clicked the increment age. Ideally the count component related to age and the button component for 
+  increment age should re-render. The other three components don't have to re-render. 
+  Similar is the case is with salary.
+
+  This isn't really a problem with few components that have simple logic. But, we should consider a scenario
+  where there are lots of components & updating a single component is going to re-render all the 20 or 30 or
+  even 50 components. WE WOULD THEN START SEEING PERFORMANCE ISSUES.
+
+  To improve performance, we have to restrict re-renders to only components that need to re-render.
+  
+  
