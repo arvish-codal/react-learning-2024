@@ -20,6 +20,7 @@ import React, {useReducer} from 'react';
 import CounterOne from './components/CounterOne';
 import CounterTwo from './components/CounterTwo';
 import CounterThree from './components/CounterThree';
+import DataFetchingOne from './components/DataFetchingOne';
 
 // Creating Contexts
 export const UserContext = React.createContext()
@@ -42,9 +43,8 @@ const reducer = (state, action) => {
 }
 
 function App() {
-  const [count, dispatch] = useReducer(reducer, initialState)
+  //const [count, dispatch] = useReducer(reducer, initialState)
   return (
-    <CountContext.Provider value={{countState: count, countDispatch: dispatch}}>
       <div className="App">
         {/* <ClassCounter /> */}
         {/* <HookCounter /> */}
@@ -72,13 +72,15 @@ function App() {
         {/* <CounterThree /> */}
 
         {/* CHANGES FOR VIDEO-65 */}
-        Count - {count}
+        {/* Count - {count}
         <ComponentA />
         <ComponentB />
-        <ComponentC />
+        <ComponentC /> */}
+        
+        {/* Video-66 */}
+        <DataFetchingOne />
 
       </div>
-    </CountContext.Provider>
   );
 }
 
