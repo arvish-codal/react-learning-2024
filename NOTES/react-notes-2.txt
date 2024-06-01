@@ -95,3 +95,23 @@ Why do we need useCallback ?
 
   REFERENCE EQUALITY - It is nothing but checking if the functions are equal which is required for our example.
 
+As it turns out, there is another hook which is also concerned with performance optimization and that is the `useMemo` hook.
+In real world applications though, we might sometimes come across logic that takes considerable amount of time for execution.
+i.e a function that isn't good with performance.
+
+`useMemo` is a hook that'll only recompute the cached value when one of the dependencies has been changed. This optimisation heads to avoid 
+expensive calculations on every render.
+
+The first argument to `useMemo` is the function whose return value needs to be cached.
+As a second parameter, we need to specify the depencencies. Our function depends on the value of counterOne i.e whenever counterOne changes, 
+we are telling React to recompute the value and not use the cached value.
+
+Also, in code change isEven() to isEven.  `isEven` is not going to be a function call because it now stores a value.
+
+DIFFERENCE BETWEEN USECALLBACK & USEMEMO 
+>> The difference is that `useCallback` caches the provided function instance itself whereas `useMemo` invokes the provided function & caches 
+   its result. 
+
+   If we need to cache a function                        ==> useCallback
+   If we need to cache the result of an invoked function ==> useMemo
+
