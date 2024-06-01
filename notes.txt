@@ -943,8 +943,11 @@ the count value and the dispatch method and consume the same from the nested com
   Over here instead of useState, we'll be using the useReducer hook.
 
 > Both `useState` & `useReducer` are used for state management.
-  Video 66 - Data fetching with the useState hook.
-  Video 67 - Data fetching with the useReducer hook.
+  Video 66 - Data fetching with the useState & useEffect hooks.
+  Video 67 - Data fetching with the useReducer & useEffect hook.
 
   In Video 66 - We must take a note of the way we're using `useState`. We've declared three variables and depending
   on the API returning a successful response or an error, we apply the appropriate state transitions.
+
+  In Video 67, we've just replaced `useState` with `useReducer`. In doing so, we've grouped the related state
+  variables together and at the same time, the state transitions are also grouped together.

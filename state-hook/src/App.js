@@ -21,6 +21,7 @@ import CounterOne from './components/CounterOne';
 import CounterTwo from './components/CounterTwo';
 import CounterThree from './components/CounterThree';
 import DataFetchingOne from './components/DataFetchingOne';
+import DataFetchingTwo from './components/DataFetchingTwo';
 
 // Creating Contexts
 export const UserContext = React.createContext()
@@ -78,8 +79,10 @@ function App() {
         <ComponentC /> */}
         
         {/* Video-66 */}
-        <DataFetchingOne />
+        {/* <DataFetchingOne /> */}
 
+        {/* Video-67 */}
+        <DataFetchingTwo />
       </div>
   );
 }
