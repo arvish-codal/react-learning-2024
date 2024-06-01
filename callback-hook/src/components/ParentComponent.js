@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 import Count from './Count'
 import Button from './Button'
 import Title from './Title'
@@ -8,13 +8,16 @@ function ParentComponent() {
   const [age, setAge] = useState(25)
   const [salary, setSalary] = useState(50000)
 
-  const incrementAge = () => {
-    setAge(age+1)
-  }
+  // In both cases, now we return the cached function which is then passed as a prop to the
+  // child components.
 
-  const incrementSalary = () => {
+  const incrementAge = useCallback (() => {
+    setAge(age+1)
+  }, [age])
+
+  const incrementSalary = useCallback(() => {
     setSalary(salary + 1000)
-  }
+  }, [salary])
 
 
   return (
