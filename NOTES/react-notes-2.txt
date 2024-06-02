@@ -132,3 +132,15 @@ DIFFERENCE BETWEEN USECALLBACK & USEMEMO
    If we need to cache a function                        ==> useCallback
    If we need to cache the result of an invoked function ==> useMemo
 
+
+So far, we've had a look at several Hooks.
+== > useState, useEffect, useContext, useReducer, useCallBack, useMemo & useRef.
+
+These hooks are all provided by the react library and we've seen that these hooks are pretty much functions that can be invoked within our
+components. IT IS POSSIBLE to build our own Hooks by extracting component logic into re-usable functions. In simpler terms, it is possible 
+for anyone to create their own custom hook. 
+
+> A custom Hook is basically a JavaScript function whose name starts with "use". A custom hook can also call other hooks if required.
+
+Why would we want custom hooks ? 
+> To share logic between two or more components. Custom hooks is a simpler alternative to HOC & render props pattern.
