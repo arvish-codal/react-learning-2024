@@ -1,0 +1,57 @@
+TYPESCRIPT with it's static type checking, you get to learn about potential bugs as you're typing the code, than heading to 
+the browser and figuring out at runtime.
+
+It also provides a way to describe the shape of an object hence providing better documentation and autocomplete.
+It makes maintenance and refactoring of large code bases much easier.
+
+
+
+What is TypeScript ?
+> It is an open source programming language developed and maintained by Microsoft. It is a typed superset 
+  of JavaScript that compiles to plain JavaScript which is understood by the Browsers.
+
+> In simple terms, combine the JavaScript we know with ES6, ES7 and a few additional features and the end
+  product is TypeScript. It is also the main programming language of Angular.
+
+Why TypeScript ?
+> TypeScript is superior to its counterparts like CoffeeScript & Dart in a way that TypeScript is just
+  extended JavaScript. Dart & CoffeeScript are new languages in themselves while TypeScript is not.
+
+  We can even rename a `.js` extension file to `.ts` and it'd work perfectly fine.
+
+> The second reason is optional static typing and type inference.
+  JavaScript is dynamically typed which means JavaScript does not know what type a variable is 
+  until it is actually instantiated at runtime which is too late.
+
+  TypeScript on the other hand adds type support to JavaScript. As a result, errors are identified as & when 
+  you type your code and during the compilation step. This results in less error-prone code.
+  
+  Specifying the type is completely optional. When you don't specify a type, TypeScript will infer the type
+  for you and still point out the errors which would otherwise be seen only during runtime.
+
+>> To compile the .ts file's code to plain JavaScript using the Typescript compiler, run the following command.
+>> tsc <file_name>.ts
+
+The command will create a file <file_name>.js which contains the transpiled code.
+
+If we've the following content in our .ts file, 
+
+let message = 'Hello World';
+console.log(message)
+
+We might've noticed an error over there (on hovering over the message variable which shows red-underline.), 
+ "Cannot redeclare block-scoped variable 'message' "
+
+ This happens because the file is treated as a script rather than a module. A module has its own scope whereas 
+ scripts share the global scope. To get rid of this error, we need to add an export statement at the top which 
+ exports nothing.
+
+ By adding an import or export statement, TypeScript treats that file as a module instead of a script.
+
+ If we modify our .ts file like below, 
+
+ export {}
+ let message = 'Hello World';
+ console.log(message)
+
+ The error will disappear & the change will be reflected in the .js file as well.
