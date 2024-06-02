@@ -138,6 +138,27 @@ DIFFERENCE BETWEEN USECALLBACK & USEMEMO
 
 This hook makes it possible to access DOM nodes directly within functional components.
 
+Video - 72
+------------
+
+At 6:43 min, we receive the error `interval is not defined`. Rightly so, because the variable is scoped only to 
+the useEffect hook. So we can clear the interval within the effect Hook, but not from an event handler.
+This is where `useRef` can come to the rescue.
+
+Although `useRef` can hold a reference to a DOM node using the `ref` attribute. It can also be used to store any
+mutable value and what's great about useRef is that the value will persist through the re-renders while also not 
+causing any additional renders when its value changes.
+
+`useRef` can be used to create a generic container which can hold a mutable value similar to instance properties on 
+a class component. This generic container does not cause re-renders when the data it stores changes.
+
+At the same time, it also remembers the stored data even after other state variables caused a re-render of this 
+component. 
+
+A simple use case is clearing an interval timer from an event handler.
+
+Some hooks which are used rarely - useImperativeHandle, useLayoutEffect & useDebugValue.
+
 
 So far, we've had a look at several Hooks.
 == > useState, useEffect, useContext, useReducer, useCallBack, useMemo & useRef.
@@ -150,3 +171,20 @@ for anyone to create their own custom hook.
 
 Why would we want custom hooks ? 
 > To share logic between two or more components. Custom hooks is a simpler alternative to HOC & render props pattern.
+
+
+**** COMMON ERRORS ****
+Our state immediately changes when our component is rendered. 
+And we know that when the state changes, our component will be rendered again. So it can make an infinite loop.
+***********************
+
+What is an inline function ? 
+
+An inline function in JavaScript is a function defined within the scope of another function and created at runtime. 
+It allows for the definition of functions that can be used on-the-fly without the need for a separate function declaration.
+
+WHY USE ARROW FUNCTION with React event handler ?
+ => https://react.dev/learn/responding-to-events#adding-event-handlers
+ => https://blog.devgenius.io/why-it-is-necessary-to-use-arrow-functions-with-react-event-handler-e0b278710310
+ => https://teamtreehouse.com/community/why-must-we-use-an-arrow-function-for-onclick
+ => https://www.reddit.com/r/reactjs/comments/cy389t/help_me_understand_when_to_use_arrow_functions_in/
