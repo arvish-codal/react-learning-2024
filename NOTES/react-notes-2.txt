@@ -28,7 +28,7 @@ have all the JSX in the parent component itself and make it simpler.
   If we clear the console & increment age, we see that every component is re-rendered even though we only 
   clicked the increment age. Ideally the count component related to age and the button component for 
   increment age should re-render. The other three components don't have to re-render. 
-  Similar is the case is with salary.
+  Similar is the case with salary.
 
   This isn't really a problem with few components that have simple logic. But, we should consider a scenario
   where there are lots of components & updating a single component is going to re-render all the 20 or 30 or
@@ -59,12 +59,12 @@ have all the JSX in the parent component itself and make it simpler.
 
      THIS IS BECAUSE a new `incrementSalary` function is created each time the parent component re-renders.
      
-     ```IMP```
+     ``` IMP ```
      When dealing with functions, we always have to consider reference equality. Even though the two functions 
      have the exact same behaviour, it does not mean they're equal to each other. Therefore, the function before 
      the re-render is different to the function after the re-render and since the function is a prop, React.memo
      sees that the prop has changed and will not prevent the re-render.
-     ```IMP```
+     ``` IMP ```
 
      And above is the same case when we increment salary as well. There is a new `incrementAge` function created
      which will cause the `incrementAge` button to re-render.
@@ -84,6 +84,7 @@ What is useCallback hook ?
 
    If the salary does increment, i.e if the dependency has changed, ONLY THEN a new function will be returned.
 
+ > New function is created each rerender, and to solve that function should be memorized using a callback hook
 
 Why do we need useCallback ?
 > It is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.
