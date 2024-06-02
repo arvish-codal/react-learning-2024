@@ -100,14 +100,30 @@ As it turns out, there is another hook which is also concerned with performance 
 In real world applications though, we might sometimes come across logic that takes considerable amount of time for execution.
 i.e a function that isn't good with performance.
 
-`useMemo` is a hook that'll only recompute the cached value when one of the dependencies has been changed. This optimisation heads to avoid 
-expensive calculations on every render.
+Video 70 - From 6:45 min :-
+-----------------------------
+When we click on the other button & still there is a delay with the UI updates. When we click that button, after a second or two the 
+counterTwo increments. THIS IS STRANGE though. Why is counterTwo slow when the isEven has to be called with counterOne only & not counterTwo.
+
+ANSWER - That is because every time the state is updated, the component re-renders. And when the component re-renders, `isEven` function is called 
+         again. The function is slow & hence even when we update counterTwo, the UI update is slow.
+
+         What we need is a way to tell React not to recalculate certain values when unnecessary ; especially the ones which take a long time to
+         compute. 
+
+         In our example, we need to tell React not to calculate whether `counterOne` is odd or even when we are changing `counterTwo` values.
+
+
+This is where the `useMemo` hook comes into picture. `useMemo` is a hook that'll only recompute the cached value when one of the dependencies has been changed. 
+This optimisation heads to avoid expensive calculations on every render.
 
 The first argument to `useMemo` is the function whose return value needs to be cached.
 As a second parameter, we need to specify the depencencies. Our function depends on the value of counterOne i.e whenever counterOne changes, 
 we are telling React to recompute the value and not use the cached value.
 
 Also, in code change isEven() to isEven.  `isEven` is not going to be a function call because it now stores a value.
+
+
 
 DIFFERENCE BETWEEN USECALLBACK & USEMEMO 
 >> The difference is that `useCallback` caches the provided function instance itself whereas `useMemo` invokes the provided function & caches 
