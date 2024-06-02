@@ -19,7 +19,7 @@ function App() {
       {/* useRef Example - 1 */}
       {/* <FocusInput /> */}
 
-      <ClassTimer />
+      {/* <ClassTimer /> */}
       <HookTimer />
 
     </div>
