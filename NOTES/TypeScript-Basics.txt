@@ -206,9 +206,15 @@ which you can use an interface, but not all form fields are mandatory. Optional 
 
 
 
+Access modifiers are basically keywords that set the accessibility of properties and methods in a class.
 
 
 
+public member - can be accessed anywhere throughout the program. by default, each class member is public (i.e can be accessed throughout the program)
+private member - cannot be accessed outside of it's containing class. Also, a private member cannot be accessed in the derived class.
+
+Sometimes, we want a derived class to have access to the base class properties, but the property should not be accessible outside the classes. In such 
+scenarios, we use the `protected` access modifiers. 
 
 
 
