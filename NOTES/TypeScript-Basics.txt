@@ -120,3 +120,95 @@ instead of just any type ?
 
   1) The UNION types restrict to the specified types whereas the any type has no restrictions.
   2) Intellisense support
+
+  Functions in TypeScript :-
+  ****************************
+
+  function add (num1: number, num2: number): number {
+        return num1 + num2
+  }
+
+  add(5, 10);
+
+  Apart from types, TypeScript also has other great features when it comes to functions :- optional
+  parameters & default parameters.
+
+  In TypeScript, every parameter is assumed to be required by the function.
+
+  If we want a certain parameter to be optional, we simply can add a question mark at the end of the
+  parameter name.
+
+  Like this -> function add(num1: number, num2?: number): number {
+    return num1 + num2;
+  }
+
+> We can have any number of optional parameters, but the condition is that optional parameters must always be 
+  after the required parameters.
+
+> IT IS POSSIBLE to specify an object as a type in TypeScript.
+
+  function fullName(person: {firstName: string, lastName: string}) {
+        console.log(`${person.firstName} ${person.lastName}`)
+  }
+
+  let p = {
+    firstName: 'Bruce',
+    lastName: 'Wayne'
+  }
+
+  fullName(p);
+
+We'll see `Bruce Wayne` printed out in the console. Till now, everything works as expected and that is fine.
+
+But right now, the person parameter has just two properties. So, it is not really a problem to define the function.
+But, imagine an object that has five to ten different properties. For example - an address object which contains 
+line1 to line3, city, state, country, postal code, telephone and so on. And if that doesn't make it worse, imagine 
+having so many functions that use the same address object as its parameter.
+
+The code will start to look clumsy and code maintenance will be difficult.
+
+As a solution to that, we've interfaces in TypeScript. We can create an interface of the person object and use that 
+interface as a type for the function parameter.
+
+CODE :- 
+
+interface Person {
+    firstName: string;
+    lastName: string
+}
+
+function fullName(person: Person) {
+    console.log(`${person.firstName} ${person.lastName}`)
+}
+
+let p = {
+firstName: 'Steve',
+lastName: 'Rogers'
+}
+
+fullName(p)
+
+>> We can see that the code looks way more cleaner now. The same interface can easily be used as a type in multiple 
+   functions. And any changes to the Person type happens at one place ; definitely easier to maintain the code.
+
+It is also possible to specify that a property of the interface is optional. Simply, add a question mark to the end 
+of the corresponding property
+
+interface Person {
+    firstName: string;
+    lastName?: string
+}
+
+A very straightforward use case for optional properties is forms. 
+
+For example, a Registration form. There can be specific type of data that the registration form is supposed to gather for 
+which you can use an interface, but not all form fields are mandatory. Optional properties can be used in such situations.
+
+
+
+
+
+
+
+
+
