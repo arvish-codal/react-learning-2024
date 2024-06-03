@@ -62,3 +62,61 @@ We might've noticed an error over there (on hovering over the message variable w
  Syntax -->  let variableName : datatype = value
  Example --> let isBeginner : boolean = true 
  
+ we have another type called `any`. That type does not do any
+
+ let myVariable : any = 10
+  
+ With myVariable, a number of errors can occur. Say we do something as below.
+ 
+ console.log(myVariable.name)
+ myVariable();
+ myVariable.toUpperCase();
+
+ TypeScript will not force us to do any checking before we try to call, construct or access properties on these values.
+ Therefore, it won't throw any error because our variable is off type `any`. To tackle this issue, 
+ TypeScript 3.0 introduced a new type called `unknown`.
+
+ `unknown` type is very similar to the `any` type. So, any value is assignable to type unknown. However, you can't
+ access any properties off of an `unknown` type nor can you call or construct them.
+
+ let myVariable: unknown = 10;
+ 
+ console.log(myVariable.name);
+ myVariable();
+ myVariable.toUpperCase();
+
+ If we change the variable to type `unknown` from type `any`, we'll get the errors right away. 
+ 
+ Error => 'myVariable' is of type 'unknown'. To be able to get rid of the errors, we need to 
+ use a type assertion to convince the type system that we know better.
+
+ Make change as follows, 
+
+ (myVariable as string).toUpperCase();
+
+ Now, TypeScript assumes that we've made the necessary check. Type assertion is similar to type casting 
+ in other languages. We're saying that myVariable should be treated as a string and then the toUpperCase 
+ method can be applied.
+
+TypeScript also has the ability to specify union of types for the same variable.
+
+example :- let multitype: number | boolean;
+           multiType = 20;
+           multiType = true;
+
+A use case for specifying multiple types would be when a value is not under your control. It could come from 
+a library, from an API which might send a numeric value as a string value or from user inputs.
+
+In that case, we might have a question as to why should we use multiple types (a.k.a union of types) 
+instead of just any type ?
+
+> We could have easily written like this, 
+
+  let anyType: any;
+  anyType = 20;
+  anyType = true;
+
+  There are two reasons mainly for that :- 
+
+  1) The UNION types restrict to the specified types whereas the any type has no restrictions.
+  2) Intellisense support
