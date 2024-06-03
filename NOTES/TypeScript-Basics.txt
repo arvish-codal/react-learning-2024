@@ -55,3 +55,10 @@ We might've noticed an error over there (on hovering over the message variable w
  console.log(message)
 
  The error will disappear & the change will be reflected in the .js file as well.
+
+ Variable Types in TypeScript :- 
+
+ to declare a variable with type in TS,
+ Syntax -->  let variableName : datatype = value
+ Example --> let isBeginner : boolean = true 
+ 
