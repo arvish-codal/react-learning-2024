@@ -188,3 +188,22 @@ WHY USE ARROW FUNCTION with React event handler ?
  => https://blog.devgenius.io/why-it-is-necessary-to-use-arrow-functions-with-react-event-handler-e0b278710310
  => https://teamtreehouse.com/community/why-must-we-use-an-arrow-function-for-onclick
  => https://www.reddit.com/r/reactjs/comments/cy389t/help_me_understand_when_to_use_arrow_functions_in/
+ 
+ ******************************************************************************************************************************************************
+
+Video - 94
+-----------
+
+To learn about TypeScript with React, we first need a react app that is configured specifically for TypeScript.
+`create-react-app` provides a TypeScript template that we can use.
+
+Command => npm create-react-app react-typescript-demo --template typescript
+
+Here, react-typescript-demo is our project name & we specify we want typescript to be configured by using the template option.
+
+Once the command is successfully executed, we can see the project structure,
+> We see an index.tsx file and an app.tsx file. Index.tsx is the entry point to our React app where we mount the app 
+  component onto the root DOM node.
+
+> And the App.tsx contains our app component which is the root component.
+> Components are defined in a `.tsx` file and not in a `.js` or `.jsx` file.
