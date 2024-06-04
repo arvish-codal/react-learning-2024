@@ -211,3 +211,9 @@ Once the command is successfully executed, we can see the project structure,
 Video - 95 
 
 > A look at few basic prop types we're likely to use when creating a component with TypeScript.
+
+Video - 96
+
+> Typing an object prop & an array.
+  For object prop ==> Person.tsx
+  For array ==> PersonList.tsx
