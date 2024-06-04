@@ -207,3 +207,7 @@ Once the command is successfully executed, we can see the project structure,
 
 > And the App.tsx contains our app component which is the root component.
 > Components are defined in a `.tsx` file and not in a `.js` or `.jsx` file.
+
+Video - 95 
+
+> A look at few basic prop types we're likely to use when creating a component with TypeScript.
