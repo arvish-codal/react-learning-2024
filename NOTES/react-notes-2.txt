@@ -209,11 +209,73 @@ Once the command is successfully executed, we can see the project structure,
 > Components are defined in a `.tsx` file and not in a `.js` or `.jsx` file.
 
 Video - 95 
+-----------
 
 > A look at few basic prop types we're likely to use when creating a component with TypeScript.
 
 Video - 96
+-----------
 
 > Typing an object prop & an array.
   For object prop ==> Person.tsx
   For array ==> PersonList.tsx
+
+
+Video - 97
+-----------
+
+Currently, we've type defined as following --> 
+
+type StatusProps = {
+    status: string
+}
+
+From 2:25 (File --> Status.tsx), We've a problem. 
+
+Our message can handle only a status of loading, success or error. The status type though is any string.
+So, we could pass in a completely random string & TypeScript doesn't flag it as an error. 
+
+To fix this, we can use a union of string literals as the status type. We can change the code as below, 
+
+type StatusProps = {
+    status: 'loading' | 'success' | 'error'
+}
+
+For our next type, let's take a look at the children props which can be passed to a React component.
+(File --> Heading.tsx)
+
+Another variant of children props is when the child is another React component. (File -> Oscar.tsx)
+
+At 5:54, we see the error that we haven't defined the type. But, the question is what is the type of a React component ?
+> There are a few types that we can specify, but the safest bet is `React.ReactNode` which is a type provided by React
+  types package.
+
+  type OscarProps = {
+    children: React.ReactNode
+}
+
+> Passing React components as children props is pretty common. Remember `React Node` type from the React types package.
+
+> At 7:18 --> The last type is optional type. Sometimes it might so happen that a component prop doesn't have to be
+  passed. (Revisit the Greet component)
+
+  The way we inform TypeScript that message count prop is optional is by including a question mark at the end of the prop 
+  name where we define the type.
+
+  Like this,
+
+  type GreetProps = {
+    name: string
+    messageCount?: number
+    isLoggedIn: boolean
+  }
+
+ If we wish to go a step further, we can destructure message count from props and assign a default value of zero.
+ > const {messageCount = 0} = props
+
+ What we're saying is if messageCount is passed in, use that value. If not, use `0` as it's value.
+ This is how we specify optional props for a component with TypeScript.
+
+ Summary :- 
+ : We covered some common advanced types we'll need when defining props for a component :- Union of string literals, 
+   children prop & children prop where the type is React.ReactNode and finally optional props.
