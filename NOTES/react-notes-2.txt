@@ -279,3 +279,38 @@ At 5:54, we see the error that we haven't defined the type. But, the question is
  Summary :- 
  : We covered some common advanced types we'll need when defining props for a component :- Union of string literals, 
    children prop & children prop where the type is React.ReactNode and finally optional props.
+
+
+Video - 98 - Event Props
+-------------------------
+
+0:44 min => What we want here is for the button component to accept a click event as a prop and pass it on to the HTML
+            button element. Most of the time a click handler does not need any parameter and doesn't return anything.
+            
+            For example, it can make an API call in the function body but doesn't have to accept a parameter or return a 
+            value. For such cases, we can type the event as () => void (i.e an arrow function that doesn't return anything,
+            so VOID)
+
+2:16 min => Another variant of this click handler is when we need the event passed in to our click handler. Like this, (event) => 
+            But again, what exactly is the type of this click event. For that, we rely on a React type. The type of this event is 
+            React.MouseEvent . As below, 
+
+            type ButtonProps = {
+              handleClick: (event: React.MouseEvent) => void
+            }
+            
+            We can also be more specific by saying this is a button click by adding <HTMLButtonElement>
+            Like this, 
+
+            type ButtonProps = {
+              handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+            }
+
+            We don't have to import `HTMLButtonElement` as it is readily available in our TypeScript environment.
+
+Till 4:17 mins ==> This is pretty much about typing a click event as a component prop.
+
+At 4:34 ==> Typically with input elements, the component would need two props :- the input value and the onChange handler.
+            
+At 6:24 ==> What we've seen here till now is the `handleChange` event being passed in as a prop. However, we also have an alternative 
+            of defining the handler within the component as well.
