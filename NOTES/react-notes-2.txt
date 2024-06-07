@@ -372,3 +372,9 @@ Video - 102 - Typing the useState Hook when the initial value is only known at a
   value type. We specified that the state type can be null or AuthUser.
 
 
+Video - 106 :- 
+---------------
+
+> What we've done is use the theme value as a context (i.e content defined in `theme.ts`), and set the styles for the 
+  div tag defined in Box.tsx file.
+
