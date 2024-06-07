@@ -8,6 +8,11 @@ type AuthUser = {
 export const User = () => {
     
     const [user, setUser] = useState<AuthUser | null>(null)
+
+    // If we're confident that user will be initialized soon after setup and will always have a value after, 
+    // we can use type assertion as below.
+    //const [user, setUser] = useState<AuthUser>({} as AuthUser)
+
     const handleLogin = () => {
         setUser({
             name: 'Arvish',

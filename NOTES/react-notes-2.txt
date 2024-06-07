@@ -368,5 +368,7 @@ Video - 101 - useState Hook with TypeScript
 
 Video - 102 - Typing the useState Hook when the initial value is only known at a future point in time
 ------------------------------------------------------------------------------------------------------
->
+> Here, we've learnt how to type the useState hook when the initial value type is different to the future 
+  value type. We specified that the state type can be null or AuthUser.
+
 
