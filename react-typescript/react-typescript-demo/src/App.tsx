@@ -10,6 +10,8 @@ import { Input } from './components/Input';
 import { Container } from './components/Container';
 import { ThemeContextProvider } from './components/context/ThemeContext';
 import { Box } from './components/context/Box';
+import { UserContextProvider } from './components/context/UserContext';
+import { User } from './components/context/User';
 
 function App() {
   
@@ -58,9 +60,16 @@ function App() {
       
       {/* <Container styles={{ border: '1px solid black', padding: '1rem' }} /> */}
 
-      <ThemeContextProvider>
+      {/* For Video-106 */}
+      {/* <ThemeContextProvider>
          <Box />
-      </ThemeContextProvider>
+      </ThemeContextProvider> */}
+
+      {/* For Video-107 */}
+      <UserContextProvider>
+        <User />
+      </UserContextProvider>
+
 
     </div>
   );
