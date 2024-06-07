@@ -320,3 +320,41 @@ Video - 99 - Styles as Props
 ------------------------------
 
 At 0:39 mins ==> What we want now is for the style to be passed in as props rather than hardcode within the component.
+
+Some Tips related to props & types in React :- 
+
+1) We can destructure props when defining the component.
+2) Type(s) can be written in separate file (example - Person.types.ts ) and can be imported and used wherever required.
+   It'd would make sense to use this when we have a lot more types within a component and to make our codebase look clean,
+   we can use this. With this approach, we can export & import types just like components.
+
+   File - Person.types.ts
+   -----------------------
+
+   export type PersonProps = {
+     name: {
+        first: string
+        last: string
+     }
+   }
+
+
+3) Reusing Types --> It is possible to extract a type and use it in multiple places. For example, in file `Person.types.ts`,
+                     we can extract the `name` object into a separate type. Example shown below,
+
+                     export type Name = {
+                      first: string
+                      last: string
+                    }
+
+
+                     export type PersonProps = {
+                      name: Name
+                    }
+
+                    As seen above, within Person props, name is of type `Name`. Now that we've a `Name` type, we can also use it 
+                    in other places. For ex, let's import it in `PersonList.tsx` . This method of creating a basic type and using
+                    it in multiple places is a good thing. This approach ensures reusability and avoid duplication.
+
+
+
