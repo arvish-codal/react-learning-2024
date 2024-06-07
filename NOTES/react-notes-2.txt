@@ -358,3 +358,15 @@ Some Tips related to props & types in React :-
 
 
 
+Video - 101 - useState Hook with TypeScript
+--------------------------------------------
+> We initialized useState with a simple Boolean value and allowed TypeScript to infer the types for the state variable as well as 
+  the setter function.
+
+> TypeScript has inferred the type of `isLoggedIn` to be Boolean because of the initial value that we've specified.
+
+
+Video - 102 - Typing the useState Hook when the initial value is only known at a future point in time
+------------------------------------------------------------------------------------------------------
+>
+
