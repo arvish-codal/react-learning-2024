@@ -314,3 +314,9 @@ At 4:34 ==> Typically with input elements, the component would need two props :-
             
 At 6:24 ==> What we've seen here till now is the `handleChange` event being passed in as a prop. However, we also have an alternative 
             of defining the handler within the component as well.
+
+
+Video - 99 - Styles as Props
+------------------------------
+
+At 0:39 mins ==> What we want now is for the style to be passed in as props rather than hardcode within the component.
