@@ -18,6 +18,8 @@ import { Profile } from './components/auth/Profile';
 import { List } from './components/generics/List';
 import { RandomNumber } from './components/restriction/RandomNumber';
 import { Toast } from './components/templateliterals/Toast';
+import { CustomButton } from './components/html/Button';
+import { CustomInput } from './components/html/Input';
 
 function App() {
   
@@ -92,7 +94,14 @@ function App() {
       {/* <RandomNumber value={10} isPositive={true}/> */}
 
      {/* Changes for Video - 113 */}
-     <Toast position='center' />
+     {/* <Toast position='center' /> */}
+
+     {/* Changes for Video - 114 */}
+     <CustomButton variant='secondary' onClick = {() => console.log('Clicked')}>
+       Primary Button
+     </CustomButton>
+     
+     {/* <CustomInput /> */}
 
     </div>
   );
