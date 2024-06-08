@@ -484,3 +484,12 @@ JFI --> If we look at a library like React-HotToast for example, a toast notific
         on the screen. (Possible positions Written as comment in file Toast.tsx)
 
    > That is what we want to restrict our position prop value to as well.
+
+
+Video - 114 :- Wrapping HTML Elements
+---------------------------------------
+
+> File(s) :- /src/components/html/Button.tsx & /src/components/html/Input.tsx
+  -----------------------------------------------------------------------------
+
+  We need to specify button props to include the HTML button props in addition to our special prop.
