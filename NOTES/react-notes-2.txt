@@ -376,5 +376,7 @@ Video - 106 :-
 ---------------
 
 > What we've done is use the theme value as a context (i.e content defined in `theme.ts`), and set the styles for the 
-  div tag defined in Box.tsx file.
+  div tag defined in Box.tsx file. 
 
+NOTE - A context always has to be created outside the component whereas its future value will always be set inside a
+       component.
