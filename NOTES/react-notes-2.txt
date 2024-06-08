@@ -413,7 +413,7 @@ DomRef.tsx ==> This file contains a component where we use the `useRef` hook to 
                mounts.
 
 
-Video 110 - How to pass a component as a prop with React & TypeScript
+Video - 110 :- How to pass a component as a prop with React & TypeScript
 ------------------------------------------------------------------------
 
 > At 3:53 mins ==> It doesn't know the <Component> can accept the name prop. To fix this, in `PrivateProps` object,
@@ -422,4 +422,32 @@ Video 110 - How to pass a component as a prop with React & TypeScript
   Like this => `Component: React.ComponentType<ProfileProps>`
 
   If we've to pass in a component prop, use `React.ComponentType`. If that component itself accepts props, specify the 
-  prop type in angled brackets (as shown at line no 422)
+  prop type in angled brackets (as shown at line no 422 above => Look in the file /components/auth/Private.tsx for reference)
+
+
+  Video - 111 :- TypeScript Generics
+  ------------------------------------
+
+  > At 1:39 min, in App.tsx => We've invoked the List component. Items array is an array of three strings. And `onClick`
+    prop is a simple function which logs the clicked item to the console.
+
+    When we specify items as an array of numbers, we've make changes as `| number` in the Types as well.
+    Now after some time, we see items as an array of objects where each object contains a first name and a last name.
+    
+    TypeScript will throw an error. So, what we need is a way to tell TypeScript that the type of items and the onClick 
+    handler item can vary. And, GENERICS are the way to do that.
+
+    We've already looked & used generics before
+     - When we specified the type to useState => (components/state/User.tsx)
+     - When we specified the React.ComponentType in Private Props (components/auth/Private.tsx)
+
+    > For this example (src/components/generics/List.tsx), add a generic type to the list props type. We can think of generic type as parameterized types.
+       Like this ==> type ListProps<T>
+
+       <T> is sort of a convention and stands for type. But you are welcome to use any label you want to use.
+       We assign the same to items (items: T[]) => read as Array of type T. Same for the onClick prop.
+
+      If we want to add restrictions to what the generic type can be, we can focus on the constraint we've specified ==> <T extends {}>
+      If we want only an array of numbers or strings, we specify <T extends string | number>
+
+      Another useful constraint is mentioning that each object must contain an `ID` property => <T extends {id: number}>

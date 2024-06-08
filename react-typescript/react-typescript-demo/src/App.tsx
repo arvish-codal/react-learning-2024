@@ -15,6 +15,7 @@ import { User } from './components/context/User';
 import { Counter } from './components/class/Counter';
 import { Private } from './components/auth/Private';
 import { Profile } from './components/auth/Profile';
+import { List } from './components/generics/List';
 
 function App() {
   
@@ -75,7 +76,15 @@ function App() {
 
       {/* <Counter message='The count value is' /> */}
 
-      <Private isLoggedIn={true} component={Profile} />
+      {/* <Private isLoggedIn={true} component={Profile} /> */}
+
+      {/* Changes for Video - 111 */}
+      <List 
+        items={['Batman', 'Superman', 'Wonder Woman']} 
+        onClick={(item) => console.log(item)}
+      />
+
+      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
 
     </div>
   );
