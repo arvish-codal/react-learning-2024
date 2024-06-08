@@ -394,3 +394,19 @@ Video - 107 :-
 > From 10:10 min ==> At the moment, we can see that we've to check if user context exists every time we need to use its
   value(i.e We've `if userContext` written in event handlers) and optional chaining with userContext. This is because we 
   specify `null` as the initial value. What we can do instead is use type assertion again.
+
+
+REMEMBER 3 simple steps when it comes to Context API in React :- 
+1) Create a context. 
+2) Use that context from the component that needs the data. (i.e consume the context)
+3) Provide that context from the component that specifies the data. (i.e the Context Provider)
+
+
+Video 108 - useRef hook
+-------------------------
+> When it comes to useRef, there are primarily two scenarios :- 
+  1) As a read-only ref for a DOM element. (File --> src/components/ref/DomRef.tsx)
+  2) As a mutable value which can behave like an instance variable. (File --> src/components/ref/MutableRef.tsx)
+
+DomRef.tsx ==> This file contains a component where we use the `useRef` hook to focus an input element when the component 
+               mounts.
