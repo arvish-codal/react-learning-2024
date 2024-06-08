@@ -459,6 +459,7 @@ multiple types to be handled but at the same time, provide strict type checking.
 
 Video - 112 :- Restricting PROPS that can be passed to a component
 --------------------------------------------------------------------
+
 Look at ' /components/restriction/RandomNumber.tsx' folder.
 
 At 1:48 mins, There is room for improvement.
@@ -470,3 +471,16 @@ other two props set to `True`.
 We begin by creating separate types for positive, negative & zero. We can create a `RandomNumber` type and extend it.
 
 At 3:43 mins, now we can specify our restrictions. For that, Typescript provides a `never` type.
+
+
+Video - 113 :- Template literals & exclude
+--------------------------------------------
+
+> File :- /src / components / templateliterals / Toast.tsx
+
+In this scenario, it is a simple component that accepts one prop called `position` and renders it in the browser.
+
+JFI --> If we look at a library like React-HotToast for example, a toast notification can pop-up in various positions 
+        on the screen. (Possible positions Written as comment in file Toast.tsx)
+
+   > That is what we want to restrict our position prop value to as well.
