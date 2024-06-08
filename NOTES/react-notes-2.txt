@@ -451,3 +451,22 @@ Video - 110 :- How to pass a component as a prop with React & TypeScript
       If we want only an array of numbers or strings, we specify <T extends string | number>
 
       Another useful constraint is mentioning that each object must contain an `ID` property => <T extends {id: number}>
+
+
+GENERICS is really powerful and is something we're going to come across when working with React & TypeScript. It helps us avoid code duplication when we need 
+multiple types to be handled but at the same time, provide strict type checking.
+
+
+Video - 112 :- Restricting PROPS that can be passed to a component
+--------------------------------------------------------------------
+Look at ' /components/restriction/RandomNumber.tsx' folder.
+
+At 1:48 mins, There is room for improvement.
+
+At the moment, it is quite possible for the user to even set `isNegative` & `isZero` to True. This is not how we intend the component to be used.
+What we've to do is restrict the props. If `isPositive` is passed in, `isNegative` & 'isZero' should be disallowed. Similar restrictions with the 
+other two props set to `True`.
+
+We begin by creating separate types for positive, negative & zero. We can create a `RandomNumber` type and extend it.
+
+At 3:43 mins, now we can specify our restrictions. For that, Typescript provides a `never` type.
