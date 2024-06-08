@@ -12,6 +12,7 @@ import { ThemeContextProvider } from './components/context/ThemeContext';
 import { Box } from './components/context/Box';
 import { UserContextProvider } from './components/context/UserContext';
 import { User } from './components/context/User';
+import { Counter } from './components/class/Counter';
 
 function App() {
   
@@ -66,10 +67,11 @@ function App() {
       </ThemeContextProvider> */}
 
       {/* For Video-107 */}
-      <UserContextProvider>
+      {/* <UserContextProvider>
         <User />
-      </UserContextProvider>
+      </UserContextProvider> */}
 
+      <Counter message='The count value is' />
 
     </div>
   );
