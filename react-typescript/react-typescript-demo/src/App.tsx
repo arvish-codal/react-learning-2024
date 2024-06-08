@@ -17,6 +17,7 @@ import { Private } from './components/auth/Private';
 import { Profile } from './components/auth/Profile';
 import { List } from './components/generics/List';
 import { RandomNumber } from './components/restriction/RandomNumber';
+import { Toast } from './components/templateliterals/Toast';
 
 function App() {
   
@@ -88,7 +89,10 @@ function App() {
       <List items={[1, 2, 3]} onClick={(item) => console.log(item)} /> */}
 
      {/* Changes for Video - 112 */}
-      <RandomNumber value={10} isPositive={true}/>
+      {/* <RandomNumber value={10} isPositive={true}/> */}
+
+     {/* Changes for Video - 113 */}
+     <Toast position='center' />
 
     </div>
   );
