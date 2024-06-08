@@ -404,9 +404,22 @@ REMEMBER 3 simple steps when it comes to Context API in React :-
 
 Video 108 - useRef hook
 -------------------------
+
 > When it comes to useRef, there are primarily two scenarios :- 
   1) As a read-only ref for a DOM element. (File --> src/components/ref/DomRef.tsx)
   2) As a mutable value which can behave like an instance variable. (File --> src/components/ref/MutableRef.tsx)
 
 DomRef.tsx ==> This file contains a component where we use the `useRef` hook to focus an input element when the component 
                mounts.
+
+
+Video 110 - How to pass a component as a prop with React & TypeScript
+------------------------------------------------------------------------
+
+> At 3:53 mins ==> It doesn't know the <Component> can accept the name prop. To fix this, in `PrivateProps` object,
+  after the `Component: React.ComponentType`, specify the profileprops. 
+
+  Like this => `Component: React.ComponentType<ProfileProps>`
+
+  If we've to pass in a component prop, use `React.ComponentType`. If that component itself accepts props, specify the 
+  prop type in angled brackets (as shown at line no 422)
