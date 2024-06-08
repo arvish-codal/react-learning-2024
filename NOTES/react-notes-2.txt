@@ -371,12 +371,26 @@ Video - 102 - Typing the useState Hook when the initial value is only known at a
 > Here, we've learnt how to type the useState hook when the initial value type is different to the future 
   value type. We specified that the state type can be null or AuthUser.
 
+  Like this, 
+
+  const [user, setUser] = useState<AuthUser | null>(null)
+
+  Here, we are informing TypeScript that user can either be null or AuthUser.
+
 
 Video - 106 :- 
----------------
+-----------------
 
 > What we've done is use the theme value as a context (i.e content defined in `theme.ts`), and set the styles for the 
   div tag defined in Box.tsx file. 
 
 NOTE - A context always has to be created outside the component whereas its future value will always be set inside a
        component.
+
+
+Video - 107 :-
+-----------------
+
+> From 10:10 min ==> At the moment, we can see that we've to check if user context exists every time we need to use its
+  value(i.e We've `if userContext` written in event handlers) and optional chaining with userContext. This is because we 
+  specify `null` as the initial value. What we can do instead is use type assertion again.
