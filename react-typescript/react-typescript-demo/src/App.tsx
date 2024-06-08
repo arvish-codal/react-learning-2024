@@ -97,9 +97,9 @@ function App() {
      {/* <Toast position='center' /> */}
 
      {/* Changes for Video - 114 */}
-     <CustomButton variant='secondary' onClick = {() => console.log('Clicked')}>
+     {/* <CustomButton variant='secondary' onClick = {() => console.log('Clicked')}>
        Primary Button
-     </CustomButton>
+     </CustomButton> */}
      
      {/* <CustomInput /> */}
 
