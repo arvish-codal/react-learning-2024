@@ -493,3 +493,11 @@ Video - 114 :- Wrapping HTML Elements
   -----------------------------------------------------------------------------
 
   We need to specify button props to include the HTML button props in addition to our special prop.
+
+
+Video - 115 :- Extracting a Component's Prop Types
+-----------------------------------------------------
+
+Here, we'll be able to extract the prop types from one component and use them as prop types for another component.
+
+Refer File --> CustomComponent.tsx (We extract props from the Greet component to the custom component)
