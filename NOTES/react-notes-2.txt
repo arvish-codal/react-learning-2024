@@ -506,3 +506,15 @@ Refer File --> CustomComponent.tsx (We extract props from the `Greet` component 
 Video - 116 :- Polymorphic components with React & TypeScript
 ---------------------------------------------------------------
 
+---------------------------------------------------------------------------
+
+
+
+******************************************** REACT ROUTER ********************************************
+
+> It is a fully-featured client and server-side routing library for React. The library helps create and navigate 
+  between different URL's that make up our web application.
+
+> It also provides unique URLs for different components in the app and makes the UI easily shareable with other
+  users.
+
