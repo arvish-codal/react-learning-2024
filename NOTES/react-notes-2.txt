@@ -518,3 +518,18 @@ Video - 116 :- Polymorphic components with React & TypeScript
 > It also provides unique URLs for different components in the app and makes the UI easily shareable with other
   users.
 
+  React Router PlayList --> https://www.youtube.com/watch?v=UWYOC8g5N_0&list=PLC3y8-rFHvwjkxt8TOteFdT_YmzwpBlrG
+
+
+Video - 3 :- Configuring Routes 
+*********************************
+
+> The first step to configuring routes with React-Router is to connect the URL in the browser with our React Application.
+  
+  For that, React-Router provides a component called Browser router with which we need to wrap our entire app. 
+  (These changes should be done in `index.js`)
+
+  What this allows us to do is use all the features from react-router within the app component tree.
+
+  At 3:08 min => For the route configuration, we need two components from React Router => Routes & Route
+
