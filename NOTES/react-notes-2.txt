@@ -500,4 +500,9 @@ Video - 115 :- Extracting a Component's Prop Types
 
 Here, we'll be able to extract the prop types from one component and use them as prop types for another component.
 
-Refer File --> CustomComponent.tsx (We extract props from the Greet component to the custom component)
+Refer File --> CustomComponent.tsx (We extract props from the `Greet` component to the `CustomComponent`)
+
+
+Video - 116 :- Polymorphic components with React & TypeScript
+---------------------------------------------------------------
+
