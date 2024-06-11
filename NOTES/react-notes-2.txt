@@ -560,6 +560,15 @@ Video - 5 :- Styling the Active Links
 
 > What's special about this `NavLink` component is that by default it receives an `active` class when the link is the
   current route. (CHECK THIS BY INSPECTING THE ELEMENT, if we redirect from one route to another, the corresponding anchor 
-  tag gets the active class attached to it)
+  tag gets the active class attached to it).
 
+> From 2:25 min => Offcourse, we won't be using plain CSS to style our React App. We must be using a CSS in JS solution.
+  
+  WE CAN MAKE USE OF THE ACTIVE LINK WITH THE STYLE PROP. We can use style prop on the two `NavLinks` we have and set it's 
+  value to a function. (in our case, `navLinkStyles`)
+
+  SEE THE CODE OF THE FUNCTION `navLinkStyles` 
+   > It is an arrow function. But it just so happens :- `NavLink` component will set a property called `isActive` which can
+     be destructured from the arrow function's parameter.
+  
 
