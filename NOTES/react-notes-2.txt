@@ -623,3 +623,21 @@ Video - 7 :- Configuring a no-match route in our React Application
 > We'll create a default component that should be rendered for URL's that don't match any of the configured routes.
 
 <Route path='*' /> --> This has a special meaning in React Router. This Route will match only when no other routes do.
+
+
+Video - 8 :- Configuring nested Routes
+*****************************************
+
+> From 7:21 mins,
+
+  We've now configured routes to render the child component within the parent component i.e `FeaturedProducts` or `NewProducts` 
+  within the `Products` component.
+
+  However, the products page still doesn't know where to render the child component. For that, React-Router provides an `Outlet`
+  component. The `Outlet` component renders the component corresponding to the matching child route from the parent list of routes.
+  
+  We've to invoke the `Outlet` component inside the Product component code. (i.e in Products.js)
+
+
+Possible Usecase :- To have a common layout for a feature in our application. The parent route will render the layout component and
+                    within the layout component, use the `Outlet` component to render different child components.
