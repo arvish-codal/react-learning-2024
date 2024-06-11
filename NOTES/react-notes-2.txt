@@ -604,4 +604,10 @@ in the history stack.
 
 If you want to replace the history, pass in the optional second argument with replace set to `true`.
 
+Some info about the Stack Data Structure :- 
+
+> Initially the stack is empty and value of top is -1. 
+> When an element is inserted the value of top will be incremented by 1 and the element would be inserted at the array index specified by the top variable. 
+> Same process is followed when more elements are inserted into stack until the stack is completely full.
+
 Refer here to understand about STACK data structure --> https://www.techgig.com/practice/data-structure/stacks/tutorial#:~:text=Initially%20the%20stack%20is%20empty,the%20stack%20is%20completely%20full 
