@@ -533,3 +533,33 @@ Video - 3 :- Configuring Routes
 
   At 3:08 min => For the route configuration, we need two components from React Router => Routes & Route
 
+
+Video - 4 :- Links 
+********************
+
+> From 1:01 min, within the <nav> tag, we need two clickable elements to navigate between the routes.
+  To navigate to another route, `react-router` provides us with the Link component.
+
+  The <Link> component renders an anchor element in the DOM. So, we can specify text similar to the anchor text.
+  
+  But, instead of the `href` attribute, we specify the `to` prop. To this prop, we assign the path of the
+  configured route.
+
+
+Video - 5 :- Styling the Active Links 
+***************************************
+
+> Till now, we've added two links to navigate back & forth between the home page & the about page.
+  However, both these links appear the same irrespective of which route we are currently viewing.
+
+> In practical web applications, it is common to style the link corresponding to the active route in a different  
+  way. This also benefits the user from a user experience point of view.
+
+> React-Router provides another component called `NavLink` which knows whether or not it is the active link.
+  We can use that component to style the active link in our Nav bar.
+
+> What's special about this `NavLink` component is that by default it receives an `active` class when the link is the
+  current route. (CHECK THIS BY INSPECTING THE ELEMENT, if we redirect from one route to another, the corresponding anchor 
+  tag gets the active class attached to it)
+
+
