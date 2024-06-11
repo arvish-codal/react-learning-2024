@@ -611,3 +611,15 @@ Some info about the Stack Data Structure :-
 > Same process is followed when more elements are inserted into stack until the stack is completely full.
 
 Refer here to understand about STACK data structure --> https://www.techgig.com/practice/data-structure/stacks/tutorial#:~:text=Initially%20the%20stack%20is%20empty,the%20stack%20is%20completely%20full 
+
+More info on the useNavigate replace:true ==> https://reactrouter.com/en/main/hooks/use-navigate
+
+Earlier, there was a hook called "useHistory" which was used to move to the previous page. It is depricated now and instead of that, we use `useNavigate`.
+
+
+Video - 7 :- Configuring a no-match route in our React Application
+*********************************************************************
+
+> We'll create a default component that should be rendered for URL's that don't match any of the configured routes.
+
+<Route path='*' /> --> This has a special meaning in React Router. This Route will match only when no other routes do.
