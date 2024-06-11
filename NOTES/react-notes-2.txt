@@ -570,5 +570,38 @@ Video - 5 :- Styling the Active Links
   SEE THE CODE OF THE FUNCTION `navLinkStyles` 
    > It is an arrow function. But it just so happens :- `NavLink` component will set a property called `isActive` which can
      be destructured from the arrow function's parameter.
-  
+    
+  Therefore to set a style on the active link, make use of the `NavLink` component.
 
+
+WE MIGHT HAVE A QUESTION ==> Why would we use the LINK component that we had seen earlier instead of the NavLink Component ?
+> The `NavLink` component is specifically meant for building components like a NavBar or breadcrumbs or a set of tabs where 
+  we'd like to highlight the current selected item and provide useful context with screen readers.
+
+> If we want to navigate to routes from other parts of the app, Link should be the component to use as we wouldn't want the
+  active class being applied when it is not needed.
+
+
+Video - 6 :- Navigating Programmatically
+******************************************
+
+> Till now, we've learnt how to navigate to different routes using the <Link> & <NavLink> components. For the most, it is pretty 
+  much all that we need.
+
+> However at times, we might need to programmatically navigate to a particular route. For Ex - We're placing an order on Amazon.
+  If the form submission is successful, we'd be navigated to Order Confirmation page.
+
+> IN THIS VIDEO, we'll be implementing a button click handler where we programmatically navigate to a different route in our application.
+
+> From 2:54 mins :- What we want to do is on click of the button, navigate to the order summary page. To navigate programmatically, 
+  React-Router-DOM provides the `useNavigate` Hook. This hook returns a function.
+
+> Also, implementing a back button programmatically is also done with the `useNavigate` hook.
+
+To summarize, React Router provides the `useNavigate` hook to navigate programmatically. Call the hook within the component and use the 
+returned function to navigate passing in either a path (i.e 'order-summary') or a number (i.e (-1) in our example) that indicates a change
+in the history stack.
+
+If you want to replace the history, pass in the optional second argument with replace set to `true`.
+
+Refer here to understand about STACK data structure --> https://www.techgig.com/practice/data-structure/stacks/tutorial#:~:text=Initially%20the%20stack%20is%20empty,the%20stack%20is%20completely%20full 
