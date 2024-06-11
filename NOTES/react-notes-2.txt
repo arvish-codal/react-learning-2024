@@ -641,3 +641,11 @@ Video - 8 :- Configuring nested Routes
 
 Possible Usecase :- To have a common layout for a feature in our application. The parent route will render the layout component and
                     within the layout component, use the `Outlet` component to render different child components.
+
+
+
+Video - 8 :- Index Route
+***************************
+
+> When you have nested routes and amonst those nested routes, we want a route to be rendered at the parent URL, make use of an Index 
+  Route. The index route will contain the `index` prop instead of the `path` prop.
