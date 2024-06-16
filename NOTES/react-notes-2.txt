@@ -649,3 +649,7 @@ Video - 8 :- Index Route
 
 > When you have nested routes and amonst those nested routes, we want a route to be rendered at the parent URL, make use of an Index 
   Route. The index route will contain the `index` prop instead of the `path` prop.
+
+                                  ***************** DJANGO-REACT NOTES APP ******************
+
+Read about Axios interceptors here --> https://www.npmjs.com/package/axios#axios-api
