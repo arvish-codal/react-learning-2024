@@ -1,0 +1,17 @@
+What is Next.js ?
+> It is a React Framework for building web applications.
+
+When building applications with React alone, it's not feasible to create a fully featured application 
+ready for production. 
+
+React is a library for building User interfaces (UI), responsible only for the view layer of an application.
+As a developer, we need to make decisions about other features such as routing, data fetching and more.
+
+Next.Js on the other hand is a React Framework. It uses React for building user interfaces but also provides
+additional features that enable you to build production-ready applications.
+
+These features include routing, optimized rendering, data fetching, bundling, compiling and more. We don't need 
+to install additional packages as Next.js provides everything we need.
+
+However, NextJs being a framework has opinions and conventions that should be followed to implement these features.
+
