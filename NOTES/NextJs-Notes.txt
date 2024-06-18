@@ -15,3 +15,22 @@ to install additional packages as Next.js provides everything we need.
 
 However, NextJs being a framework has opinions and conventions that should be followed to implement these features.
 
+
+To create a new NextJS project, we need to run the following command :- 
+  - npx create-next-app@latest
+
+The `.next` folder --> This folder is generated when we run either the dev or build scripts. (i.e for example - npm run dev)
+It is from this folder that our NextJS application is served.
+
+The `node_modules` folder --> This is where all the dependencies of our project are installed.
+
+The `public` folder --> This folder holds all the static assets to be served such as images and SVG's.
+
+Inside the `src` folder, we've one folder called app which is the newly introduced app router.
+
+In the context of `Hello-World` project, 
+> When we run the command `npm run dev`, the execution is transferred to `layout.tsx`, 
+  The `RootLayout` Component is rendered.
+
+> When we navigate to localhost:3000, the children prop will always refer to the component defined in `page.tsx` 
+  in the `app` folder. That component is the `Home` component which is then rendered in the browser.
