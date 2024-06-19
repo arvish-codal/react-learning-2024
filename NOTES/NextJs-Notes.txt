@@ -34,3 +34,27 @@ In the context of `Hello-World` project,
 
 > When we navigate to localhost:3000, the children prop will always refer to the component defined in `page.tsx` 
   in the `app` folder. That component is the `Home` component which is then rendered in the browser.
+
+  React Server Components is a new architecture introduced by the React team in version 18.
+  The architecture introduces a new way of creating React Components - splitting them into two types :-
+   - Server Components & Client Components
+
+> Server Components :- 
+ - In Next.js, all components are Server components by default. They have the ability to run tasks like reading files or
+   fetching data from a database. 
+ - However, they don't have the ability to use Hooks or handle user interactions.
+
+> Client Compontoents :-
+
+ - To create a Client component, it's necessary to add "use client" at the top of the component file. Client components are the
+   traditional React components.
+
+NextJS has a file-system based routing mechanism where the URL paths accessible in the browser are defined by files & folders within 
+our codebase.
+
+Routing Conventions 
+ - All routes must be placed inside the app folder.
+ - Every file that corresponds to a route must be named page.js or page.tsx 
+ - Every folder corresponds to a path segment in the browser URL.
+
+ When these conventions are followed, the file automatically becomes available as a route.
