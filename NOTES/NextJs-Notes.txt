@@ -63,4 +63,13 @@ Routing Conventions :-
 
  When these conventions are followed, the file automatically becomes available as a route.
 
- By creating a nested folder structure, files will automatically be routed in the same way within the URL.
+ By creating a nested folder structure, files will automatically be routed in the same way within the URL. ( Refer to `blog` folder within the `NextJS/hello-world` project.)
+
+ While this approach works for now, it's not always feasible to define routes using pre-defined paths espesically for 
+ complex applications. We need dynamic routes in that case.
+
+ In NextJS, we can enclose a folder name with brackets to create a dynamic route. (See `products` folder in NextJS/hello-world project)
+ NextJS treats square brackets in a folder name as a dynamic segment enabling us to create dynamic routes.
+
+NOTE :-  Every page in the app router receives route parameters as a prop.
+
