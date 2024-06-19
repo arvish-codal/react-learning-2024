@@ -52,9 +52,15 @@ In the context of `Hello-World` project,
 NextJS has a file-system based routing mechanism where the URL paths accessible in the browser are defined by files & folders within 
 our codebase.
 
-Routing Conventions 
+Some points to note :- 
+ - The `page.tsx` file within the app folder corresponds to the domain root and page.tsx files within the subfolders are associated
+   with routes based on their folder names such as `about` and `profile` .
+
+Routing Conventions :-
  - All routes must be placed inside the app folder.
  - Every file that corresponds to a route must be named page.js or page.tsx 
  - Every folder corresponds to a path segment in the browser URL.
 
  When these conventions are followed, the file automatically becomes available as a route.
+
+ By creating a nested folder structure, files will automatically be routed in the same way within the URL.
