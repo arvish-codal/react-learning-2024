@@ -79,3 +79,13 @@ But for handling - /products/1/reviews/1 - we need nested dynamic routes.
 
 When dealing with multiple path segments, the solution lies in a nested folder structure.
 It is possible to create nested dynamic routes by having dynamic segments in the folder names. (See `products` and `reviews` folder structures inside the `NextJS/hello-world` project)
+
+`Catch all segments` route captures all URL segments and maps them to a single file in our project (i.e the `page.tsx` file in our `app/docs/[...slug]` folder)
+
+This is particularly useful for documentation where we want different segments for better organisation & SEO, but the layout of the document remains the same. We define it once, but render it
+for multiple variations of the URL.
+
+NextJS Tutorial - 9 - From 6:50 mins,  (If we simply go to /docs, we get a 404. (which is taken care of by NextJS) )
+
+However, if we wish to display the `<h1>Docs home page</h1>` in case of no slug, we've to make use of optional catchall segments.
+All we've to do is wrap the square brackets with another pair of square brackets. ( i.e [[...slug]] in place of [..slug] )
