@@ -73,3 +73,9 @@ Routing Conventions :-
 
 NOTE :-  Every page in the app router receives route parameters as a prop.
 
+When building complex application, it is common to encounter scenarios where multiple dynamic route segments are required.
+For ex - /products/1 - is handled with dynamic routes.
+But for handling - /products/1/reviews/1 - we need nested dynamic routes.
+
+When dealing with multiple path segments, the solution lies in a nested folder structure.
+It is possible to create nested dynamic routes by having dynamic segments in the folder names. (See `products` and `reviews` folder structures inside the `NextJS/hello-world` project)
