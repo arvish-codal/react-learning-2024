@@ -89,3 +89,29 @@ NextJS Tutorial - 9 - From 6:50 mins,  (If we simply go to /docs, we get a 404. 
 
 However, if we wish to display the `<h1>Docs home page</h1>` in case of no slug, we've to make use of optional catchall segments.
 All we've to do is wrap the square brackets with another pair of square brackets. ( i.e [[...slug]] in place of [..slug] )
+
+Although NextJS provides routing conventions to follow, it remains flexible regarding how we structure our project files & folders.
+
+FILE COLOCATION 
+ - We already know that NextJS uses a file system based router where each folder represents a route segment mapped to a corresponding segment in the URL path.
+   It's important to note that a route isn't publicly accessible until a `page.js` or `page.tsx` is added to the respective route segment.
+ 
+ - Even when a route becomes publicly accessible, only the content returned by `page.tsx` is sent to the client. The content returned must be a 
+   default exported React Component.
+
+
+Private Folders :- 
+
+ - A private folder indicates that it is a private implementation detail and should not be considered by the routing system.
+ - This means that the folder & all its sub-folders are excluded from routing.
+
+ - A private folder should be prefixed by an underscore. Within that folder, we can have utility functions.
+
+ - Private folders can be helpful in few different scenarios : 
+   : For separating UI logic from routing logic.
+   : For consistently organizing internal files across a project.
+   : For sorting and grouping files in code editors.
+   : For avoiding potential naming conflicts with future NextJS file conventions.
+
+ See _lib (It is a private folder, the component in it won't be rendered)
+ However, if you keep the encoded URL segment, it will be served. (for `_`, we can write `%5F`)
