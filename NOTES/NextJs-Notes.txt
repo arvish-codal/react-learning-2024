@@ -138,6 +138,9 @@ A page is UI that is unique to a route. A layout is UI that is shared between mu
 When building apps, it is common to have a consistent layout across different pages such as a header at the top and a footer at the bottom.
 With the introduction of the layouts, achieving this becomes much easier in NextJS.
 
+In nutshell, Layouts are UI components shared between multiple pages in an application.
+And each app has a mandatory root layout which is the topmost layout.
+
 
 How do we create Layouts ?
 ---------------------------
@@ -158,3 +161,8 @@ Hence by defining a single `layout.tsx` file in the app folder, we can create a 
  - Similarly, when we do `localhost:3000/profile`, the JSX for page.tsx in the profile folder gets rendered.
 
 The Layout component renders the children prop for `page.tsx` to render a unique UI corresponding to the route.
+
+It's important to note that Layouts can be nested. This approach of nested layouts allows us to create layouts that apply only to specific areas 
+of our application. 
+
+IMP - Look at NextJS series Video 15 from 2:50 min to visualize.
