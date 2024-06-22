@@ -205,3 +205,26 @@ To determine if a link is active, NextJS provides `usePathname` hook.
 *******  Video 20 from 4:20 mins --> We won't see any changes reflecting for CSS if we do not have global CSS file deleted. As workaround, we'll have to create a styles.css file inside the (auth) folder. ***********
 
 Read more over here --> https://nextjs.org/docs/pages/building-your-application/styling#adding-a-global-stylesheet
+
+
+NextJS Tutorial NO 22 - Templates
+-----------------------------------
+
+From 2:08 mins, we've entered a value for the input element at the path /register.
+
+Now when we navigate to `/login`, the input value remains as it is. 
+Therefore, we can see that the state is preserved.
+
+This is because Layouts only mount the part representing the content of the newly loaded page, but keep all the common elements untouched.
+Layouts don't remount shared components resulting in better performance.
+
+A majority of the time this is the behaviour we need. However, we might come across a scenario where we need the layouts to create a new instance
+for each of their children on navigation. Example scenarios include `enter/exit animations` for Pages or running a side effect using the `useEffect` hook when the route changes.
+
+For such situations, we can use the template file as replacement of the layout file. TEMPLATES are similar to layouts in that they wrap each child layout or page.
+
+But, with templates, when a user navigates between routes that share a template, a new instance of the component is mounted, DOM elements are recreated, state is not preserved & effects 
+are re-synchronized.
+
+A template can be defined by exporting a default React component from a template.js or template.tsx file.
+Similar to layouts, templates should also accept a children prop which will render the nested segments in the route.
