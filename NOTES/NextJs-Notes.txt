@@ -197,3 +197,11 @@ The `<Link>` component is a React component that extends the HTML `<a>` element,
 way to navigate between routes in NextJS. To use it, we need to import it from "next/link".
 
 In the <Link> component, `replace` prop replaces the current history state instead of adding a new URL to the stack.
+
+************************************************************************
+To determine if a link is active, NextJS provides `usePathname` hook.
+************************************************************************
+
+*******  Video 20 from 4:20 mins --> We won't see any changes reflecting for CSS if we do not have global CSS file deleted. As workaround, we'll have to create a styles.css file inside the (auth) folder. ***********
+
+Read more over here --> https://nextjs.org/docs/pages/building-your-application/styling#adding-a-global-stylesheet
