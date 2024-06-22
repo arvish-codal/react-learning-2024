@@ -228,3 +228,9 @@ are re-synchronized.
 
 A template can be defined by exporting a default React component from a template.js or template.tsx file.
 Similar to layouts, templates should also accept a children prop which will render the nested segments in the route.
+
+So far, we've come across several special files --> page.tsx, layout.tsx, template.tsx, not-found.tsx 
+Now, there's 1 more file called `loading.tsx`.
+
+`loading.tsx` - This file allows us to create loading states that are displayed to users while a specific route segment's content is loading.
+                The loading state appears immediately upon navigation, giving users the assurance that the application is responsive and actively loading content.
