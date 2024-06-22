@@ -190,3 +190,10 @@ With the new App router, there are two methods to configure metadata in a `layou
  2) Export a dynamic generateMetadata function.
 
 Both `Layout` & `Page` can have metadata, but Page metadata takes precedence if both are present.
+
+To enable client-side navigation, NextJS provides us with the `Link` component.
+
+The `<Link>` component is a React component that extends the HTML `<a>` element, and it's the primary
+way to navigate between routes in NextJS. To use it, we need to import it from "next/link".
+
+In the <Link> component, `replace` prop replaces the current history state instead of adding a new URL to the stack.
