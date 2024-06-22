@@ -234,3 +234,13 @@ Now, there's 1 more file called `loading.tsx`.
 
 `loading.tsx` - This file allows us to create loading states that are displayed to users while a specific route segment's content is loading.
                 The loading state appears immediately upon navigation, giving users the assurance that the application is responsive and actively loading content.
+
+There's another vital part of our application namely error handling through a special file named `error.tsx`.
+
+The component defined in `error.tsx` can also receive the error object as a prop to display more information.
+
+Here's what `error.tsx` file does in the App router:- 
+ - Automatically wrap a route segment and its nested children in a React error boundary
+ - Create error UI tailored to specific segments using the file-system hierarchy to adjust granularity.
+ - Isolate errors to affected segments while keeping the rest of the application functional.
+ - Add functionality to attempt to recover from an error without a full page reload.
