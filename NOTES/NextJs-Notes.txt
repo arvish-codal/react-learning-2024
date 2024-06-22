@@ -178,3 +178,15 @@ The routes outside of the group (i.e forgot-password) do not share the layout. O
 route group share this layout.
 
 This is particularly useful in large projects with numerous layouts and route segments ensuring a tidy & organized project structure.
+
+When it comes to building web applications, ensuring proper search engine optimization is crucial for increasing visibility and attracting users.
+
+NextJS introduced the `Metadata API` which allows you to define metadata for each page ensuring accurate & relevant information is displayed when your pages are 
+shared or indexed.
+
+With the new App router, there are two methods to configure metadata in a `layout.tsx` OR a `page.tsx` file.
+ 1) Either export a static metadata object.
+                   OR 
+ 2) Export a dynamic generateMetadata function.
+
+Both `Layout` & `Page` can have metadata, but Page metadata takes precedence if both are present.
