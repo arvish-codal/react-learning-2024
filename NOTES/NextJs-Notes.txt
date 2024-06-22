@@ -165,4 +165,16 @@ The Layout component renders the children prop for `page.tsx` to render a unique
 It's important to note that Layouts can be nested. This approach of nested layouts allows us to create layouts that apply only to specific areas 
 of our application. 
 
-IMP - Look at NextJS series Video 15 from 2:50 min to visualize.
+----------------------------------------------------------------------------------------------
+**** IMP - Look at NextJS series Video 15 from 2:50 min to visualize nested layouts. ****
+----------------------------------------------------------------------------------------------
+
+Another Importance of a Route Group - Selectively apply a layout to certain segments while leaving others unchanged.
+Route groups allow us to opt specific segments into a layout without altering the URL.
+
+We've implemented the same - See `products` folders in the hello-world project -  we've `with-auth-layout` folder.
+
+The routes outside of the group (i.e forgot-password) do not share the layout. Only `login` & `register` within the `with-auth-layout`
+route group share this layout.
+
+This is particularly useful in large projects with numerous layouts and route segments ensuring a tidy & organized project structure.
