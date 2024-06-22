@@ -129,3 +129,32 @@ Private Folders :-
 
  - Therefore, (auth) serves as a folder to help organize our code. However, we can have multiple levels of nested route groups if needed.
 
+
+LAYOUTS :-
+-----------
+
+A page is UI that is unique to a route. A layout is UI that is shared between multiple pages in the app.
+
+When building apps, it is common to have a consistent layout across different pages such as a header at the top and a footer at the bottom.
+With the introduction of the layouts, achieving this becomes much easier in NextJS.
+
+
+How do we create Layouts ?
+---------------------------
+
+You can define a layout by default exporting a React component from a `layout.js` or `layout.tsx` file.
+That component should accept a children prop that'll be populated with a child page during rendering.
+
+The file `Layout.tsx` in the app folder (i.e in the `hello-world` project) serves as the topmost layout and is referred to as the 
+root layout. The root layout is a mandatory layout for every NextJS application.
+
+Every Layout component should accept a children prop that'll be replaced by a child component during rendering.
+In `hello-world` project, the `page.tsx` in the app folder will replace the children prop when the layout is rendered in the browser.
+The children prop here represents our `Home` component defined in `page.tsx` file.
+
+Hence by defining a single `layout.tsx` file in the app folder, we can create a consistent layout for every page in our application.
+ - For `localhost:3000`, the JSX for `page.tsx` within the app folder gets rendered.
+ - When we do `localhost:3000/about`, the JSX for page.tsx in the about folder gets rendered.
+ - Similarly, when we do `localhost:3000/profile`, the JSX for page.tsx in the profile folder gets rendered.
+
+The Layout component renders the children prop for `page.tsx` to render a unique UI corresponding to the route.
