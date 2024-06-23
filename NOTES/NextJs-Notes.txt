@@ -28,6 +28,24 @@ The `public` folder --> This folder holds all the static assets to be served suc
 
 Inside the `src` folder, we've one folder called app which is the newly introduced app router.
 
+There are some scripts present in the `package.json` :- 
+ 
+ {
+    "scripts": {
+       "dev": "next dev",
+       "build": "next build",
+       "start": "next start",
+       "lint": "next lint" 
+    }
+ }
+
+ These scripts refer to the different stages of developing an application :-
+  - dev: runs `next dev` to start Next.js in development mode.
+  - build: runs `next build` to build the application for production usage.
+  - start: runs `next start` to start a Next.js production server.
+  - lint: runs `next lint` to set up Next.js' built-in ESLint configuration.
+
+
 In the context of `Hello-World` project, 
 > When we run the command `npm run dev`, the execution is transferred to `layout.tsx`, 
   The `RootLayout` Component is rendered.
@@ -244,3 +262,12 @@ Here's what `error.tsx` file does in the App router:-
  - Create error UI tailored to specific segments using the file-system hierarchy to adjust granularity.
  - Isolate errors to affected segments while keeping the rest of the application functional.
  - Add functionality to attempt to recover from an error without a full page reload.
+
+
+Tutorial 26 - Handling Errors in Nested Routes :-
+----------------------------------------------------
+
+From 1:20 min => When we hit `http://localhost:3000/products/1/reviews/1`,
+
+The entire products route is replaced by the UI from the `error.tsx` file. The error from `page.tsx` in the [reviewId] folder bubbles to the nearest error 
+boundary which is now defined in the `error.tsx` file in the `products` folder. Deeper the placement of `error.tsx`, more granular is error handling.
