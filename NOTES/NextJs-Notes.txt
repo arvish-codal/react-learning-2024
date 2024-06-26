@@ -271,3 +271,35 @@ From 1:20 min => When we hit `http://localhost:3000/products/1/reviews/1`,
 
 The entire products route is replaced by the UI from the `error.tsx` file. The error from `page.tsx` in the [reviewId] folder bubbles to the nearest error 
 boundary which is now defined in the `error.tsx` file in the `products` folder. Deeper the placement of `error.tsx`, more granular is error handling.
+
+Usually, an `error.tsx` file will handle errors for all its nested child segments.
+
+Let's say we have a component hierarchy as follows :- 
+
+  <Layout>
+    <Template>
+     <ErrorBoundary fallback={ <Error /> }>
+      <Suspense fallback={ <Loading /> }>
+        <ErrorBoundary fallback={ <NotFound /> }>
+           <Page />
+        </ErrorBoundary>
+      </Suspense>
+     </ErrorBoundary> 
+    </Template>
+  </Layout>
+
+Here, the error boundary does not catch errors thrown here because it's nested inside layout's component.
+
+
+NextJS Video 27 (Handling errors in Layout) :-
+------------------------------------------------
+
+From 1:55 min, remember the error boundary will not handle errors thrown in a `layout.tsx` component within the same segment.
+To navigate around this, we will need to place the `error.tsx` file in the layout's parent segment.
+SO, we'll move `error.tsx` from `productId` folder into the products folder.
+
+
+Now when we encounter the error on reloading the page, we observe that our app remains intact and the error boundary JSX renders in place of 
+the products route. The header, footer and any other UI elements if present higher up in the tree are unaffected.
+
+The placement of the `error.tsx` file plays a pivotal role in managing errors efficiently across different segments of our application.
