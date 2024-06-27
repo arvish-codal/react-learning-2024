@@ -327,3 +327,28 @@ Sub-Navigation in routes - Offers a seamless subnavigation experience within eac
 
  > Each slot of our dashboard can essentially function as a mini-application, complete with its own navigation and state management.
  > This is espesically useful in a complex application such as our dashboard where different sections serve different purposes. 
+
+ To summarize, Parallel Routes allow simultaneous rendering of different pages within the same layout. They are defined using slots. Slots organize content in a 
+ modular fashion making code more manageable. They not only simplify code management but also enhance user experience with independent route handling & sub-navigation.
+
+ Unmatched Routes :- 
+ ---------------------
+
+ Navigating from the UI - In the case of navigation within the UI, NextJS retains the previously active state of a slot regardless of changes in the URL.
+
+ In NextJS Tutorial - Video 29, From 3:40 mins --> ,
+ >  That means, when we navigate between `default notifications` (at /complex-dashboard) and archived notifications (at /complex-dashboard/archived) within the notification slot, 
+    the other slots namely children, users & revenue remain unaffected.
+
+ > These slots continue to display whatever content they were showing before and are not influenced by the shift in the URL path from `/complex-dashboard` to `/complex-dashboard/archived` or the reverse.
+
+ > IN THE CASE OF A PAGE RELOAD, NextJS immediately searches for a `default.tsx` file within each unmatched slot.
+ > The presence of this file is critical, as it provides the default content that Next.js will render in the user interface.
+
+ > If this `default.tsx` file is missing in any of the unmatched slots for the current route, NextJS will render a 404 error.
+   Without the `default.tsx` file, NextJS cannot determine the default content for these slots on the initial load.
+
+
+DEFAULT.TSX file :- 
+ - The `default.tsx` file in Next.js serves as a fallback to render content when the framework cannot retrieve a slot's active state from the current URL.
+ 
