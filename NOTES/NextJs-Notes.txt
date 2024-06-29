@@ -352,3 +352,21 @@ Sub-Navigation in routes - Offers a seamless subnavigation experience within eac
 DEFAULT.TSX file :- 
  - The `default.tsx` file in Next.js serves as a fallback to render content when the framework cannot retrieve a slot's active state from the current URL.
  
+
+Intercepting Routes :-
+------------------------
+
+Intercepting routes allow us to intercept or stop the default routing behaviour to present an alternate view or component when navigating through the UI, while still 
+preserving the intended route for scenarios like page reloads.
+
+This can be useful if we want to show a route while keeping the context of the current page.
+
+For instance, consider the scenario with the navigation bar.
+> Clicking on a login link or a button normally takes you to a full login page. However, with intercepting routes we can configure the application to display a login modal instead, 
+  while the URL is still updated to reflect the `/login` route. This ensures the link remains sharable. If the page is reloaded or someone accesses the page using the shared link, the full 
+  login page is displayed as expected.
+
+Idea behind intercepting routes :- Display a different UI while in the context of the current page, but render the regular UI on page reload.
+
+To summarize, intercepting routes allow us to load a route from another part of our application within the current layout. This routing paradigm can be useful when we want to display the content
+of a route without the user switching to a different context.
