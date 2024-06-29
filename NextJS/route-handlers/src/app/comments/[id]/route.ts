@@ -1,4 +1,4 @@
-import { type NextRequest } from "next/server"
+import { redirect } from "next/navigation"
 import {comments} from "../data"
 
 // The second parameter to handler function is the context object
@@ -16,6 +16,9 @@ export async function GET(
 ) 
 
 {
+    if (parseInt(params.id) > comments.length) {
+        redirect("/comments")
+    }
     const comment = comments.find(comment => comment.id === parseInt(params.id))
     return Response.json(comment)
 }
