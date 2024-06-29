@@ -370,3 +370,10 @@ Idea behind intercepting routes :- Display a different UI while in the context o
 
 To summarize, intercepting routes allow us to load a route from another part of our application within the current layout. This routing paradigm can be useful when we want to display the content
 of a route without the user switching to a different context.
+
+
+NextJS Tutorial 32 - Parallel Intercepting Routes :-
+-------------------------------------------------------
+
+> We've a photo feed & the details page. Further, we need to intercept the navigation from the feed to the details page.
+  Since we want a modal that'll render on top of the current feed, we need a paralle route first.
