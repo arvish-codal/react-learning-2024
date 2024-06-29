@@ -377,3 +377,9 @@ NextJS Tutorial 32 - Parallel Intercepting Routes :-
 
 > We've a photo feed & the details page. Further, we need to intercept the navigation from the feed to the details page.
   Since we want a modal that'll render on top of the current feed, we need a paralle route first.
+
+
+With NextJS App router, we have the capability to handle more than just page routing. We can also create custom request handlers for our routes using feature called route handlers.
+
+Unlike page routes, which respond with HTML content, route handlers allow you to create RESTful endpoints, giving you full control over the response. We can perform CRUD operations with a DB.
+Route handlers are also great for making external API requests. They run server-side, ensuring that sensitive information like private keys remain secure & never gets shipped to the browser.
