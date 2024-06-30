@@ -383,3 +383,26 @@ With NextJS App router, we have the capability to handle more than just page rou
 
 Unlike page routes, which respond with HTML content, route handlers allow you to create RESTful endpoints, giving you full control over the response. We can perform CRUD operations with a DB.
 Route handlers are also great for making external API requests. They run server-side, ensuring that sensitive information like private keys remain secure & never gets shipped to the browser.
+
+
+Cookies in Route Handlers :- 
+------------------------------
+
+Cookies are small pieces of data that a server sends to a user's web browser. 
+The browser may store the cookie and send it back to the same server with later requests.
+
+Cookies are mainly used for three purposes :- 
+ - Session management like logins & shopping carts.
+ - Personalization like user preferences and themes.
+ - Tracking like recording and analyzing user behaviour.
+
+First approach to set and get cookies in a route handler :-
+ - Using the `Set-Cookie` header and the `request` object.
+
+Second option is to set & get cookies using the cookies function provided by NextJS.
+
+
+Caching in Route Handlers :-
+------------------------------
+
+Route handlers are cached by default when using GET method with the `Response` object in Next.js 
