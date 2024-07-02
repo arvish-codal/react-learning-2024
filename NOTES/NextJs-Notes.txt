@@ -424,3 +424,60 @@ Middleware allows us to specify paths where it will be active :-
  : Conditional statements
 
 
+Rendering :-
+--------------
+
+Rendering is the process that transforms the code we write into user interfaces.
+
+******************************************************************** IMP ******************************************************************************************************************************************************************** IMP ************************************************************************************************
+
+Rendering in React :- 
+-----------------------
+
+In a typical SPA, when a client makes a request, the server sends a single HTML page to the browser.
+This HTML page often contains just a simple <div> tag and a reference to a JavaScript file.
+
+If we look at the example HTML file from `create-react-app`, a tool used to scaffold react apps, we have an empty <div> tag and a reference
+to `bundle.js`. The `bundle.js` file contains everything our application needs to run including the react library itself & our application code.
+
+It is downloaded when the HTML file is parsed. The downloaded JS file then generates the HTML on our computer and inserts it into the DOM under
+the root <div> element and we see the UI in the browser. THIS PROCESS IS EVIDENT --> when we see the HTML appear in the DOM inspector (i.e elements tab in dev tools),
+but not when we click the `View Page Source` option WHICH SHOWS the HTML file sent by the server to the browser.
+
+This method of rendering where the component code is transformed into a user interface directly within the browser (the client), is known as client-side rendering (CSR).
+CSR became the standard for SPA's with widespread adoption.
+
+However, there were some inherent drawbacks to this approach.
+ * Generating HTML that mainly contains a single <div> tag is not optimal for SEO, as it provides little content for search engines to index.
+   Large bundle size and a waterfall of network requests for API responses from deeply nested components may result in meaningful content not being rendered 
+   fast enough for a crawler to index it. Search engines struggle to index the content properly.
+
+ * Having the browser (the client) handle all the work, such as fetching data, computing the UI, and making the HTML interactive, can slow things down. Users might see a
+   blank screen or a loading spinner while the page loads. This issue tends to worsen over time as each new feature added to the application increases the size of the JS
+   bundle prolonging the wait time for the users to see the UI. This delay is particularly noticeable for users with slow internet connections. This happens because the browser
+   has to download, parse, and execute JavaScript before the user sees any meaningful content on the page.
+
+Client Side Rendering(CSR) laid the groundwork for the interactive web applications we're used to today, but to enhance SEO & performance developers started looking for
+better solutions.
+
+To overcome this drawbacks of CSR, modern React frameworks like Gatsby & NextJS pivoted towards server side solutions. This approach fundamentally changes how content is delivered to the user.
+
+When the request comes in, instead of sending a nearly empty HTML file that depends on client side JavaScript to construct the page, the SERVER TAKES CHARGE of rendering the full HTML.
+This fully formed HTML document is then sent directly to the browser. Since the HTML is generated on the server, the browser is able to quickly parse and display it improving the initial page 
+load time.
+
+The server side approach effectively resolves the issues associated with client side rendering. First, it significantly improves SEO because the search engines can easily index the server-rendered 
+content. Also, the users can immediately see the page HTML content instead of a blank screen or a loading spinner. 
+
+HOWEVER, SSR's approach to immediately improving the visibility of content has its own complexity particularly when it comes to the page's interactivity. The full interactivity of the page is on hold until the JS bundle comprising 
+React itself along with your application specific code has been completely downloaded & executed by the browser. This phase is known as Hydration.
+
+In this phase, the static HTML page initially served by the server is brought to life.
+
+During Hydration, React takes control in the browser, reconstructing the component tree in memory based on the static HTML that was served. It carefully plans the placement of interactive elements within this tree. Then, React proceeds to bind
+the necessary JavaScript logic to these elements.
+
+This involves utilizing the application state, attaching event handlers for actions such as clicks & mouseovers, and setting up any other dynamic functionalities required for a fully interactive user experience.
+
+
+******************************************************************** IMP ******************************************************************************************************************************************************************** IMP ************************************************************************************************
