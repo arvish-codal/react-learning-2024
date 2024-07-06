@@ -479,5 +479,91 @@ the necessary JavaScript logic to these elements.
 
 This involves utilizing the application state, attaching event handlers for actions such as clicks & mouseovers, and setting up any other dynamic functionalities required for a fully interactive user experience.
 
+Diving deeper, server side solutions can be categorized into two strategies :- Static Side Generation (SSG) & Server-Side Rendering (SSR)
+ 
+  : SSG occurs at build time, when the application is deployed on the server. This results in pages that are already rendered and ready to serve. It is ideal for content that doesn't change often, like blog posts.
+  : SSR, on the other hand renders pages on-demand in response to user requests. It is suitable for personalized content like social media feeds, where the HTML depends on the logged-in user.
 
+Server-Side Rendering (SSR) was a significant improvement over Client-Side Rendering (CSR), providing faster initial page loads and better SEO.
+However, SSR too introduces it's own set of challenges.
+
+Drawbacks of SSR - all or nothing WATERFALL
+ : Data fetching must be completed before the server can begin rendering HTML.
+ : The JavaScript required for the components needs to be fully loaded on the client side before the hydration process can start.
+ : All components have to be hydrated before they become interactive.
+
+These issues contribute to an 'all-or-nothing' waterfall scenario, resulting in inefficiencies, espesically if certain parts of your application are 
+slower than others, as is often the case in real-world apps.
+
+To address these performance drawbacks of SSR, React 18 intoduced the Suspense SSR architecture.
+
+ This new architecture allows us to use the <Suspense> component to unlock two major SSR features :-
+   : HTML streaming on the server
+   : Selective Hydration on the client.
+
+ 
+ As we already know, in case of SSR, the server sends the complete HTML which is then sent to the client. The client displays this HTML and only after the
+ complete JavaScript bundle is loaded does React proceed to hydrate the entire application to add interactivity.
+
+ NextJS Tutorial Video 48 :- SUSPENSE FOR SSR 
+ ----------------------------------------------
+
+  : ONLY AFTER THE COMPLETE JAVASCRIPT BUNDLE IS LOADED, DOES REACT PROCEED TO HYDRATE THE ENTIRE APPLICATION TO ADD INTERACTIVITY.
+
+  : Here is a similar visualization from a user interface perspective.
+    : FIRST, we render all HTML. The client eventually receives it. Then we load all the code and hydrate the entire application.
+ 
+    : From 1:56 min => With React 18, we've a new possibility. By wrapping a part of the page such as the main content area within Suspense component, we instruct REACT it doesn't need
+    to wait for the main section data to be fetched to start streaming the HTML for the rest of the page. React will send a placeholder like a loading spinner instead of the complete
+    component.
+
+    : Once the server is ready with the data for the main section, React sends additional HTML through the ongoing stream accompanied by an inline script tag containing the minimal
+    JavaScript needed to correctly position that HTML. As a result of this, even before the full React library is loaded on the client side, the HTML for the main section becomes 
+    visible to the user.
+
+
+      THIS SOLVES OUR FIRST PROBLEM - `WE DON'T HAVE TO FETCH EVERYTHING BEFORE WE CAN SHOW ANYTHING`
+       : If a particular section delays the initial HTML, it can be seamlessly integrated into the stream later.
+       : This is the essence of how Suspense facilitates server-side HTML streaming.
+
+  : We can now speed up the initial HTML delivery, but we still have another challenge.
+      > Until the JavaScript for the main section is loaded, client-side app hydration cannot start.
+      > And if the JavaScript bundle for the main section is large, this could significantly delay the process.
+
+  : To mitigate this, code splitting can be used. Code Splitting allows us to mark specific code segments as not immediately necessary for loading, signalling your bundler to segregate them into
+    separate `<script>` tags. Using `React.lazy` for code splitting enables you to separate the main section's code from the primary JavaScript bundle.
+    
+    AS A RESULT, the JavaScript containing React and the code for the entire application, excluding the main section, can now be downloaded independently by the client, without having to wait for
+    the main section's code.
+
+  : SELECTIVE HYDRATION ON THE CLIENT :-  The is crucial because by wrapping the main section within `<Suspense>`, we've indicated to React that it should not prevent the rest of the page from not just streaming, 
+    but also from hydrating.
+
+    This feature called `selective hydration` allows for the Hydration of sections as they become available, before the rest of the HTML & the JavaScript code are fully downloaded.
+    Thanks to Selective Hydration, a heavy piece of JS doesn't prevent the rest of the page from becoming interactive.
+
+    Moreover, selective hydration offers a solution to the third issue: the necessity to "hydrate everything to interact with anything" 
+
+    React begins hydrating as soon as possible, enabling interactions with elements like the header and side navigation without waiting for the main content to be hydrated. This process is managed automatically by React.
+    In scenarios where multiple components are awaiting hydration, React prioritizes hydration based on user interactions. For example, if the <SideNav> is about to be hydrated and we click on the <MainContent> area, React will 
+    synchronously hydrate the clicked component during the capture phase of the clicked event. This ensures the component is ready to respond immediately to user interactions. <SideNav> is hydrated later on.
+
+  : The three significant drawbacks of traditional SSR have all been addressed by the new Suspense SSR architecture.
+
+
+DESPITE THESE IMPROVEMENTS IN SSR, few challenges still remain. 
+ 1) Even though JavaScript code is streamed to the browser asynchronously, eventually, the entire code for a web page must be downloaded by the user.
+    As applications add more features, the amount of code users need to download also grows. This leads to an important question => SHOULD USERS REALLY HAVE TO DOWNLOAD SO MUCH DATA ?
+
+ 2) The current approach requires that all React components undergo hydration on the client-side, irrespective of their actual need for interactivity. This process can inefficiently spend
+    resources and extend the loading times and time to interactivity for users, as their devices need to process and render components that might not even require client-side interaction.
+    This leads to another question - should all components be hydrated, even those that don't need interactivity ?
+
+ 3) In spite of server's superior capacity for handling intensive processing tasks, the bulk of JavaScript execution still takes place on the user's device. This can slow down the performance,
+    espesically on devices that are not very powerful. This leads to another important question: should so much of the work be done on user's device ?
+
+
+ THESE ISSUES HIGHLIGHT THE NEED FOR A BETTER WAY TO BUILD FASTER APPLICATIONS THAT IMPROVE UPON TRADITIONAL RENDERING TECHNIQUES WHILE OVERCOMING THEIR LIMITATIONS.   
+ 
+ READ THIS TO KNOW MORE --> https://medium.com/@bhairabpatra.iitd/lazy-loading-in-react-b8f3babe640b#:~:text=Lazy%20loading%20in%20React%20allows%20you%20to%20split%20your%20code,loading%20time%20of%20your%20application.
 ******************************************************************** IMP ******************************************************************************************************************************************************************** IMP ************************************************************************************************
