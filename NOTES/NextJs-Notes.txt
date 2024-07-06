@@ -536,6 +536,8 @@ To address these performance drawbacks of SSR, React 18 intoduced the Suspense S
     AS A RESULT, the JavaScript containing React and the code for the entire application, excluding the main section, can now be downloaded independently by the client, without having to wait for
     the main section's code.
 
+    READ THIS TO KNOW MORE --> https://medium.com/@bhairabpatra.iitd/lazy-loading-in-react-b8f3babe640b#:~:text=Lazy%20loading%20in%20React%20allows%20you%20to%20split%20your%20code,loading%20time%20of%20your%20application.
+
   : SELECTIVE HYDRATION ON THE CLIENT :-  The is crucial because by wrapping the main section within `<Suspense>`, we've indicated to React that it should not prevent the rest of the page from not just streaming, 
     but also from hydrating.
 
@@ -565,5 +567,38 @@ DESPITE THESE IMPROVEMENTS IN SSR, few challenges still remain.
 
  THESE ISSUES HIGHLIGHT THE NEED FOR A BETTER WAY TO BUILD FASTER APPLICATIONS THAT IMPROVE UPON TRADITIONAL RENDERING TECHNIQUES WHILE OVERCOMING THEIR LIMITATIONS.   
  
- READ THIS TO KNOW MORE --> https://medium.com/@bhairabpatra.iitd/lazy-loading-in-react-b8f3babe640b#:~:text=Lazy%20loading%20in%20React%20allows%20you%20to%20split%20your%20code,loading%20time%20of%20your%20application.
+ Suspense for SSR brought us closer to a seamless rendering experience. However, it still has it's own set of challenges.
+ 
+ 1) Increased bundle sizes leading to excessive downloads for users.
+ 2) Unnecessary hydration delaying interactivity.
+ 3) Excessive client-side processing that could result in poor performance.
+
+
+To address these challenges, we need a significant leap towards a more powerful solution and that brings us to 
+React Server Components (RSC)
+
+RSC represent a new architecture designed by the React team. This approach aims to leverage the strengths of both server & client 
+environments, optimizing for efficiency, load times, and interactivity. The architecture introduces a dual-component model differentiating 
+between Client Components & Server Components.
+
+This distinction is not based on the functionality of the components but rather on where they execute and the specific environments they are designed to 
+interact with.
+
+CLIENT COMPONENTS :- 
+----------------------
+
+ > They are typically rendered on the client-side (CSR) but, they can also be rendered to HTML once on the server (SSR) allowing users to immediately see the page's HTML 
+   content rather than a blank screen. The idea of client components rendering on the server might seem confusing, but it is helpful to view them as components that primarily 
+   run on the client, but can (and should) also be executed once on the server as an optimization strategy.
+ 
+ > Client Components have access to the client environment, such as the browser, allowing them to use state, effects, and event listeners to handle interactivity and also 
+   access browser-exclusive APIs like geolocation or localStorage, allowing you to build UI for specific use cases.
+
+
+SERVER COMPONENTS :-
+----------------------
+
+ > Server Components represent a new type of React component specifically designed to operate exclusively on the server. And unlike client components, their code stays on the
+   server and is never downloaded to the client. This design choice offers multiple benefits to React applications.
+
 ******************************************************************** IMP ******************************************************************************************************************************************************************** IMP ************************************************************************************************
