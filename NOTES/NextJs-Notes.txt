@@ -601,4 +601,12 @@ SERVER COMPONENTS :-
  > Server Components represent a new type of React component specifically designed to operate exclusively on the server. And unlike client components, their code stays on the
    server and is never downloaded to the client. This design choice offers multiple benefits to React applications.
 
+   Some benefits of server components include - zero bundle size, access to server side resources, enhanced security, better SEO etc.
+
+   Reduced bundle size :- 
+    > Server components do not send code to the client, allowing large dependencies to remain server-side. This benefits users with slower internet connections or less capable 
+      devices by eliminating the need to download, parse, and execute JavaScript for these components.
+
+      
 ******************************************************************** IMP ******************************************************************************************************************************************************************** IMP ************************************************************************************************
+
