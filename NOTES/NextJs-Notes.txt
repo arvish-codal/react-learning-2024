@@ -607,6 +607,17 @@ SERVER COMPONENTS :-
     > Server components do not send code to the client, allowing large dependencies to remain server-side. This benefits users with slower internet connections or less capable 
       devices by eliminating the need to download, parse, and execute JavaScript for these components.
 
-      
+
 ******************************************************************** IMP ******************************************************************************************************************************************************************** IMP ************************************************************************************************
+
+
+NextJS Video 50 - From 6:16 min :: 
+------------------------------------
+
+> We're at localhost:3000, click on the `dashboard` link and we see the log message in the browser's console. We've it twice because of React's strict mode. If we check the terminal, we can see there's no log message about the dashboard component rendering.
+  HOWEVER, if we reload the dashboard route we can see we've the message in the browser's console again, but if we head back to the terminal THIS TIME WE SEE THE SAME MESSAGE HERE AS WELL.
+
+  WHY THIS BEHAVIOUR ?
+  REMEMBER :==: Client components are primarily executed in the client and have access to the browser APIs, but they're also PRE-RENDERED ONCE ON THE SERVER to allow the user to immediately see Page's HTML content rather than a blank screen. It is an 
+                optimization strategy that NextJS implements and is recommended by React.
 
