@@ -45,6 +45,9 @@ const MenuItem = ({ id, name, price, onEdit, onDelete }) => {
         </button>
         <button
           className="delete-button"
+          // onClick={() => {
+          //   deleteMenu(id).then(() => onDelete(id));
+          // }}
           onClick={() => {
             deleteMenu(id).then(() => onDelete(id));
           }}
